@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/*
+  ETX design system — aligned to the ASU brand (brandguide.asu.edu).
+  Primary: ASU Maroon (#8C1D40) + ASU Gold (#FFC627). Foundational contrast:
+  Rich Black (#191919) + White. Neutrals follow the Unity Design System (UDS)
+  7-step grayscale. Web typeface is Arial per ASU web standards.
+
+  Token names are kept stable across the codebase; only their values changed
+  from the previous theme. Accents:
+    ember-* = ASU Maroon scale (primary)
+    aqua-*  = ASU Gold scale (use for fills / underlines / dots, not text)
+    iris-*  = Maroon (secondary variety)
+*/
+@theme {
+  --font-sans: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+  --font-display: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+  --font-serif: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+
+  /* Surfaces (light) */
+  --color-void: #ffffff;
+  --color-space: #fafafa;   /* UDS gray 1 */
+  --color-space-2: #ffffff; /* card surface */
+  --color-nebula: #f2f2f2;
+  --color-nebula-2: #e8e8e8; /* UDS gray 2 */
+
+  /* Text */
+  --color-star: #191919;   /* Rich Black — headings / primary text */
+  --color-mist: #484848;   /* UDS gray 6 — body text */
+  --color-mist-2: #747474; /* UDS gray 5 — subtle text */
+
+  /* Ember = ASU Maroon (primary) */
+  --color-ember-300: #c15b78;
+  --color-ember-400: #a83355;
+  --color-ember-500: #8c1d40;
+  --color-ember-600: #6a1531;
+
+  /* Aqua = ASU Gold (fills, underlines, dots — avoid gold as text on white) */
+  --color-aqua-300: #ffe08a;
+  --color-aqua-400: #ffd24d;
+  --color-aqua-500: #ffc627;
+  --color-aqua-600: #e6ae00;
+
+  /* Iris = Maroon (kept for accent variety) */
+  --color-iris-400: #a83355;
+  --color-iris-500: #8c1d40;
+
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.5rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-void);
+    color: var(--color-star);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-ember-500);
+    color: #ffffff;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: var(--color-star);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ember-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .etx-container {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* Small uppercase kicker — ASU maroon */
+  .etx-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ember-500);
+  }
+
+  /* Emphasis text — solid ASU maroon (kept name for compatibility) */
+  .etx-gradient-text {
+    color: var(--color-ember-500);
+  }
+
+  /* Gold accent rule used under headlines, ASU-style */
+  .etx-goldbar {
+    display: block;
+    width: 3rem;
+    height: 0.35rem;
+    background: var(--color-aqua-500);
+    border-radius: 2px;
+  }
+
+  /* Solid ASU maroon band with white text (hero / CTA) */
+  .etx-maroon-band {
+    background: var(--color-ember-500);
+    color: #ffffff;
+  }
+
+  /* Light section wash with a faint maroon/gold hint (replaces old cosmos) */
+  .etx-cosmos {
+    background:
+      radial-gradient(60% 60% at 100% 0%, rgba(255, 198, 39, 0.08), transparent 60%),
+      radial-gradient(55% 55% at 0% 100%, rgba(140, 29, 64, 0.05), transparent 60%),
+      var(--color-space);
+  }
+
+  .etx-hairline {
+    border-color: var(--color-nebula-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
