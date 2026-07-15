@@ -9,7 +9,7 @@ export const brand = {
   mission:
     "We don't build lessons. We design learning experiences. By combining learning science, storytelling, technology, and human-centered design, we create educational experiences that engage learners, support instructors, and produce meaningful outcomes.",
   missionShort: "We don't build lessons. We design learning experiences.",
-  email: "etx@asu.edu",
+  email: "kjsegovi@asu.edu",
   parent: "Arizona State University",
 };
 
@@ -22,7 +22,6 @@ export const navLinks: NavLink[] = [
   { label: "Work", to: "/work" },
   { label: "Services", to: "/services" },
   { label: "Approach", to: "/approach" },
-  { label: "Contact", to: "/contact" },
 ];
 
 export interface Service {

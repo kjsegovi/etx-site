@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PageHero } from "../components/PageHero";
 import { Section, SectionHeader } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
@@ -9,7 +10,9 @@ import {
   processSteps,
   stats,
   partners,
+  accentClasses,
 } from "../data/content";
+import { evidenceProjects } from "../data/projects";
 
 export function Approach() {
   return (
@@ -127,6 +130,40 @@ export function Approach() {
             ))}
           </div>
         </Reveal>
+
+        <Reveal delay={0.25} className="mt-16 border-t border-nebula-2 pt-12">
+          <SectionHeader
+            eyebrow="Evidence Matters"
+            title="Research on the products themselves"
+            intro="We publish posters, papers, and efficacy findings with the work — not as a separate research brochure. Start with these case studies."
+            className="max-w-3xl"
+          />
+          <ul className="mt-10 grid gap-4 sm:grid-cols-3">
+            {evidenceProjects.map((project) => {
+              const accent = accentClasses[project.accent];
+              const count = project.research?.length ?? 0;
+              return (
+                <li key={project.slug}>
+                  <Link
+                    to={`/work/${project.slug}`}
+                    className="group relative flex h-full flex-col border-t-2 border-nebula-2 pt-5"
+                  >
+                    <span
+                      className={`absolute -top-[2px] left-0 h-[2px] w-12 ${accent.bg}`}
+                      aria-hidden
+                    />
+                    <h3 className="text-lg text-star transition-colors group-hover:text-ember-500">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-mist">
+                      {count} research {count === 1 ? "item" : "items"}
+                    </p>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
       </Section>
 
       <Section className="etx-maroon-band">
@@ -139,8 +176,8 @@ export function Approach() {
             Bring us your subject, your learners, and your ambitions. We'll bring
             the science, the story, and the craft.
           </p>
-          <Button to="/contact" variant="gold" size="lg">
-            Start a project
+          <Button to="/quick-start" variant="gold" size="lg">
+            Quick start
           </Button>
         </Reveal>
       </Section>

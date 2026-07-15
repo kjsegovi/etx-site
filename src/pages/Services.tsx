@@ -132,8 +132,8 @@ export function Services() {
             Tell us what you're trying to teach and who you're trying to reach.
             We'll help you design an experience around it.
           </p>
-          <Button to="/contact" variant="gold" size="lg">
-            Start a project
+          <Button to="/quick-start" variant="gold" size="lg">
+            Quick start
           </Button>
         </Reveal>
       </Section>

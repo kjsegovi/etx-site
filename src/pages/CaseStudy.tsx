@@ -4,7 +4,54 @@ import { Section, SectionHeader } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
 import { Button } from "../components/ui/Button";
 import { accentClasses } from "../data/content";
-import { getProject, projects } from "../data/projects";
+import {
+  getProject,
+  projects,
+  type ResearchItem,
+  type ResearchKind,
+} from "../data/projects";
+
+const researchKindLabel: Record<ResearchKind, string> = {
+  poster: "Poster",
+  paper: "Paper",
+  study: "Study",
+  article: "Article",
+};
+
+function ResearchList({ items, accentDot }: { items: ResearchItem[]; accentDot: string }) {
+  return (
+    <ul className="flex flex-col gap-5">
+      {items.map((item) => (
+        <li key={`${item.kind}-${item.title}`} className="flex gap-3">
+          <span
+            className={`mt-2.5 h-2 w-2 shrink-0 rounded-full ${accentDot}`}
+            aria-hidden
+          />
+          <div>
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-lg font-bold text-star underline decoration-2 underline-offset-4 transition-colors hover:text-ember-500"
+              >
+                {item.title}
+              </a>
+              <span className="font-display text-xs font-bold uppercase tracking-wider text-mist-2">
+                {researchKindLabel[item.kind]}
+              </span>
+            </div>
+            {item.summary && (
+              <p className="mt-2 max-w-2xl text-base leading-relaxed text-mist">
+                {item.summary}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function CaseStudy() {
   const { slug } = useParams<{ slug: string }>();
@@ -115,6 +162,21 @@ export function CaseStudy() {
           </div>
         </div>
       </Section>
+
+      {project.research && project.research.length > 0 && (
+        <Section className="bg-space">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-12">
+            <SectionHeader
+              eyebrow="Research & evidence"
+              title="What the evidence shows"
+              intro="Selected posters, papers, and studies tied to this product."
+            />
+            <Reveal>
+              <ResearchList items={project.research} accentDot={accent.dot} />
+            </Reveal>
+          </div>
+        </Section>
+      )}
 
       <Section className="bg-space border-t border-nebula-2">
         <Reveal>

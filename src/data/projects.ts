@@ -1,5 +1,14 @@
 export type Accent = "ember" | "aqua" | "iris";
 
+export type ResearchKind = "poster" | "paper" | "study" | "article";
+
+export interface ResearchItem {
+  title: string;
+  kind: ResearchKind;
+  url: string;
+  summary?: string;
+}
+
 export interface CaseStudySection {
   heading: string;
   body: string;
@@ -20,6 +29,7 @@ export interface Project {
   approach: string[];
   outcomes: string[];
   stat?: { value: string; label: string };
+  research?: ResearchItem[];
 }
 
 export const projects: Project[] = [
@@ -73,6 +83,63 @@ export const projects: Project[] = [
       "A growing body of efficacy evidence for ETX-designed courseware.",
     ],
     stat: { value: "I & II", label: "full course sequence" },
+    research: [
+      {
+        title: "DOT",
+        kind: "poster",
+        url: "https://drive.google.com/file/d/1WYP1_X3jKRog9XTJSIebBALiuYU8TcWJ/view?pli=1",
+      },
+      {
+        title: "Keeping Chemistry Relevant",
+        kind: "poster",
+        url: "https://drive.google.com/file/d/1aNJVL-0UTkayd0pWQK8Ja5mgvIDpY6MH/view",
+      },
+      {
+        title: "Not All Practice is Equal",
+        kind: "poster",
+        url: "https://drive.google.com/file/d/12sb_XBT5vYVRyQww7-5Cw7cxrnYXtqXJ/view",
+      },
+      {
+        title: "Mastery Learning",
+        kind: "poster",
+        url: "https://drive.google.com/file/d/1F_SspsEtPcuZw4KISZCeAlkqhqdzU-a6/view",
+      },
+      {
+        title: "How Students Really Use Courseware",
+        kind: "poster",
+        url: "https://drive.google.com/file/d/15Rz6k5qCIx9eaGDQ1zWuznceU7K0OKHs/view",
+      },
+      {
+        title: "Building Bonds",
+        kind: "poster",
+        url: "https://drive.google.com/file/d/1z3Bu7xvfBxTXObuEUS8OYPOcgy3S7snY/view",
+      },
+      {
+        title: "Designing for Student Engagement with AI (DOT)",
+        kind: "paper",
+        url: "https://drive.google.com/file/d/1LMMR7jXZ1xahyEs4gzLnnArXU7IAsVCK/view",
+      },
+      {
+        title: "Implementing Mastery Grading",
+        kind: "paper",
+        url: "https://drive.google.com/file/d/1gPbegltvaWxQfRJP7Ny3AkAkqPw8MpKi/view",
+      },
+      {
+        title: "Mathematics Matters",
+        kind: "paper",
+        url: "https://drive.google.com/file/d/1OVrfu3lSCdwAY1vjbUMyoJiPdmnFoyHS/view",
+      },
+      {
+        title: "Promise of Mastery-Based Testing",
+        kind: "paper",
+        url: "https://drive.google.com/file/d/1iz0cJRELewfSEPjcwphi_qa4jWXEyYnY/view",
+      },
+      {
+        title: "REAL CHEM Action Research LearnLab",
+        kind: "paper",
+        url: "https://drive.google.com/file/d/1KQ4W7SrfdejFqEoui0_QJD68tKiNnBOi/view",
+      },
+    ],
   },
   {
     slug: "habworlds",
@@ -98,6 +165,38 @@ export const projects: Project[] = [
       "An engaging model for teaching big, cross-disciplinary questions.",
     ],
     stat: { value: "Gen ed", label: "cross-disciplinary science" },
+    research: [
+      {
+        title: "Increased grades & decreased withdraw rates",
+        kind: "study",
+        url: "https://inspark.education/teach/efficacy/#course-habworlds",
+        summary:
+          "At Glendale Community College, HabWorlds sections earned significantly more As and Bs, fewer Ds and Fs, and fewer withdrawals than traditional sections (n = 306; p = .009).",
+      },
+      {
+        title: "Habitable Worlds: Delivering on the Promises of Online Education",
+        kind: "paper",
+        url: "http://online.liebertpub.com/doi/10.1089/ast.2016.1550",
+        summary: "Journal publication on Habitable Worlds and online science education.",
+      },
+      {
+        title: "How one instructor uses HabWorlds simulations for active learning",
+        kind: "article",
+        url: "https://inspark.education/teach/case-study/sally-watt/",
+      },
+      {
+        title: "How HabWorlds leads students to deeper understanding of science",
+        kind: "article",
+        url: "https://inspark.education/teach/case-study/stephan-martin/",
+      },
+      {
+        title: "Inspark efficacy studies overview",
+        kind: "study",
+        url: "https://inspark.education/teach/efficacy/",
+        summary:
+          "Summary of HabWorlds efficacy findings and further reading from the Inspark Science Network.",
+      },
+    ],
   },
   {
     slug: "polar-explorer",
@@ -171,6 +270,41 @@ export const projects: Project[] = [
       "A model of shared, community-built, next-generation courseware.",
     ],
     stat: { value: "Global", label: "network of educators" },
+    research: [
+      {
+        title: "Higher end-of-course grades (SRI Education)",
+        kind: "study",
+        url: "https://www.sri.com/wp-content/uploads/pdf/next_generation_courseware_challenge_evaluation_final_report_dec_2018.pdf",
+        summary:
+          "Independent SRI evaluation across four institutions found BioBeyond improved end-of-course grades by up to half a letter grade versus traditional courses (n = 620 BioBeyond; 2,900 traditional).",
+      },
+      {
+        title: "Improved success across student demographics",
+        kind: "study",
+        url: "https://inspark.education/teach/efficacy/#course-biobeyond",
+        summary:
+          "In the SRI study, gender and underrepresented status had no effect on the ability to predict student performance after controlling for demographics.",
+      },
+      {
+        title: "Same instructor, same exam, better results",
+        kind: "study",
+        url: "https://inspark.education/teach/efficacy/#course-biobeyond",
+        summary:
+          "At Miami Dade College, BioBeyond sections produced more As and Bs than traditional Biology 100 with the same instructor and exam (33% vs. 19%; n = 239; p < .001).",
+      },
+      {
+        title: "Inspark efficacy studies overview",
+        kind: "study",
+        url: "https://inspark.education/teach/efficacy/",
+        summary:
+          "Summary of BioBeyond efficacy findings, awards, and further reading from the Inspark Science Network.",
+      },
+      {
+        title: "Adaptive Bio course finds success with simulation & virtual field trips",
+        kind: "article",
+        url: "https://campustechnology.com/articles/2017/10/02/adaptive-bio-course-for-non-majors-finds-success-with-simulation-virtual-field-trips.aspx",
+      },
+    ],
   },
   {
     slug: "virtual-field-trips",
@@ -182,7 +316,7 @@ export const projects: Project[] = [
       "Browser-based immersive field trips that take learners from the earliest record of life on Earth to the search for life beyond it.",
     accent: "iris",
     tags: ["Immersive", "Tour It", "Exploration"],
-    url: "https://infiniscope.org",
+    url: "https://vft.asu.edu",
     featured: false,
     challenge:
       "Real field experiences are powerful but rarely accessible — most learners can't visit a 3.5-billion-year-old rock formation.",
@@ -202,3 +336,7 @@ export const getProject = (slug: string): Project | undefined =>
   projects.find((p) => p.slug === slug);
 
 export const featuredProjects = projects.filter((p) => p.featured);
+
+export const evidenceProjects = projects.filter(
+  (p) => p.research && p.research.length > 0,
+);

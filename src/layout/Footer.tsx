@@ -46,7 +46,7 @@ export function Footer() {
             </div>
             <div>
               <h3 className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
-                Get in touch
+                Email
               </h3>
               <ul className="mt-4 space-y-3">
                 <li>

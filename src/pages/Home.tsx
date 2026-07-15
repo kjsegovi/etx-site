@@ -49,8 +49,8 @@ export function Home() {
               </Reveal>
 
               <Reveal delay={0.2} className="mt-9 flex flex-wrap gap-4">
-                <Button to="/contact" variant="gold" size="lg">
-                  Start a project
+                <Button to="/quick-start" variant="gold" size="lg">
+                  Quick start
                 </Button>
                 <Button
                   to="/work"

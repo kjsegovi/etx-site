@@ -44,8 +44,8 @@ export function Nav() {
                 {link.label}
               </NavLink>
             ))}
-            <Button to="/contact" size="md">
-              Start a project
+            <Button to="/quick-start" size="md">
+              Quick start
             </Button>
           </nav>
 
@@ -97,8 +97,8 @@ export function Nav() {
                 </NavLink>
               ))}
               <div className="px-3 pt-3">
-                <Button to="/contact" size="md" className="w-full">
-                  Start a project
+                <Button to="/quick-start" size="md" className="w-full">
+                  Quick start
                 </Button>
               </div>
             </nav>
