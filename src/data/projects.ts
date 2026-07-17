@@ -34,6 +34,32 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "tour-it",
+    name: "Tour It",
+    category: "Authoring Tool",
+    subject: "Immersive Field Trips",
+    tagline: "Turn places into immersive learning journeys",
+    summary:
+      "A free, browser-based authoring tool that helps educators build 360° virtual field trips with panoramas, interactive hotspots, and connected scenes.",
+    accent: "iris",
+    tags: ["Authoring", "360°", "K-12"],
+    url: "https://infiniscope.org/page/tour-it",
+    featured: true,
+    challenge:
+      "Place-based learning can make complex ideas tangible, but travel, cost, geography, and accessibility keep many learners from experiencing the places where those ideas come alive.",
+    approach: [
+      "Created a browser-based authoring workflow for uploading 360° panoramas and arranging them into a guided journey.",
+      "Enabled educators to layer text, video, websites, PDFs, images, and audio into interactive hotspots.",
+      "Connected Tour It to free Infiniscope accounts so educators can create, preview, and share immersive field trips without specialized software.",
+    ],
+    outcomes: [
+      "Educators can build and deliver place-based learning experiences on the web using their own imagery and media.",
+      "Connected panoramas and flexible hotspots support journeys that range from guided explanations to open exploration.",
+      "Free access and browser-based delivery make immersive field trips available beyond the limits of physical travel.",
+    ],
+    stat: { value: "360°", label: "browser-based field trip authoring" },
+  },
+  {
     slug: "infiniscope",
     name: "Infiniscope",
     category: "Platform & Community",

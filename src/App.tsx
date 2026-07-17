@@ -6,6 +6,8 @@ import { CaseStudy } from "./pages/CaseStudy";
 import { Services } from "./pages/Services";
 import { Approach } from "./pages/Approach";
 import { QuickStart } from "./pages/QuickStart";
+import { QuickStartChooser } from "./pages/QuickStartChooser";
+import { TourItQuickStart } from "./pages/TourItQuickStart";
 import { NotFound } from "./pages/NotFound";
 
 export default function App() {
@@ -17,7 +19,9 @@ export default function App() {
         <Route path="work/:slug" element={<CaseStudy />} />
         <Route path="services" element={<Services />} />
         <Route path="approach" element={<Approach />} />
-        <Route path="quick-start" element={<QuickStart />} />
+        <Route path="quick-start" element={<QuickStartChooser />} />
+        <Route path="quick-start/torus" element={<QuickStart />} />
+        <Route path="quick-start/tour-it" element={<TourItQuickStart />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
