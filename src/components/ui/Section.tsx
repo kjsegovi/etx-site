@@ -45,9 +45,15 @@ export function SectionHeader({
       className={`flex max-w-2xl flex-col gap-4 ${alignment} ${className}`}
     >
       {eyebrow && <span className="etx-eyebrow">{eyebrow}</span>}
-      <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] text-star">{title}</h2>
+      <h2 className="text-balance text-3xl text-star sm:text-4xl lg:text-[2.75rem]">
+        {title}
+      </h2>
       {goldbar && <GoldBar />}
-      {intro && <p className="text-lg text-mist leading-relaxed">{intro}</p>}
+      {intro && (
+        <p className="text-pretty text-lg leading-relaxed text-mist">
+          {intro}
+        </p>
+      )}
     </Reveal>
   );
 }

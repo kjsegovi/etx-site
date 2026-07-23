@@ -125,7 +125,9 @@ export function CaseStudy() {
                   >
                     {i + 1}
                   </span>
-                  <p className="text-lg leading-relaxed text-mist">{item}</p>
+                  <p className="max-w-2xl text-balance text-lg leading-relaxed text-mist">
+                    {item}
+                  </p>
                 </li>
               ))}
             </ol>
@@ -145,7 +147,9 @@ export function CaseStudy() {
                       className={`mt-2.5 h-2 w-2 shrink-0 rounded-full ${accent.dot}`}
                       aria-hidden
                     />
-                    <p className="text-lg leading-relaxed text-mist">{item}</p>
+                    <p className="max-w-2xl text-balance text-lg leading-relaxed text-mist">
+                      {item}
+                    </p>
                   </li>
                 ))}
               </ul>

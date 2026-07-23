@@ -5,6 +5,7 @@ import { Reveal } from "../components/ui/Reveal";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { GoldBar } from "../components/ui/GoldBar";
+import { PartnerRow } from "../components/PartnerRow";
 import {
   brand,
   values,
@@ -20,7 +21,15 @@ export function Approach() {
     <>
       <PageHero
         eyebrow="Our approach"
-        title={brand.missionShort}
+        title={
+          <>
+            <span className="block">We don’t build lessons.</span>
+            <span className="text-white">We design </span>
+            <span className="text-aqua-500">
+              learning experiences and the tools that bring them to life.
+            </span>
+          </>
+        }
         intro={brand.mission}
         spaceVariant="exploration-trajectories"
       />
@@ -30,6 +39,7 @@ export function Approach() {
           eyebrow="What we value"
           title="The principles behind every project"
           intro="These aren't posters on a wall. They're the decisions we make when the work gets hard."
+          className="max-w-3xl"
         />
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -123,17 +133,7 @@ export function Approach() {
         </Reveal>
 
         <Reveal delay={0.2} className="mt-12">
-          <p className="etx-eyebrow text-mist-2">Trusted by</p>
-          <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4">
-            {partners.map((partner) => (
-              <span
-                key={partner.name}
-                className="font-display text-lg text-mist sm:text-xl"
-              >
-                {partner.name}
-              </span>
-            ))}
-          </div>
+          <PartnerRow partners={partners} align="start" tone="muted" />
         </Reveal>
 
         <Reveal delay={0.25} className="mt-16 border-t border-nebula-2 pt-12">

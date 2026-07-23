@@ -179,7 +179,7 @@ export function PageHero({
           <span className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
             {eyebrow}
           </span>
-          <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-3 text-balance text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
             {title}
           </h1>
           <span
@@ -187,7 +187,7 @@ export function PageHero({
             aria-hidden="true"
           />
           {intro && (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90">
+            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-white/90">
               {intro}
             </p>
           )}

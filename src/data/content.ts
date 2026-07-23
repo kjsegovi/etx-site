@@ -27,6 +27,24 @@ export const creatorMessage = {
   body: "Educators, instructors, and organizations can use Torus, Simple Author, and Tour It to create, adapt, and deliver meaningful learning experiences of their own.",
 };
 
+export interface HomepageVideo {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  embedUrl: string;
+  iframeTitle: string;
+}
+
+export const homepageVideo: HomepageVideo = {
+  eyebrow: "See ETX in action",
+  title: "Education through exploration",
+  summary:
+    "This NASA Movie Night feature shows how ETX brings learning science, technology, and collaboration together to create authentic exploration at greater scale, with quality and inclusion at the center.",
+  embedUrl:
+    "https://www.youtube.com/embed/bWcjmu5r7wE?si=EE3ibau35ybSVHoW&cc_load_policy=1&cc_lang_pref=en&playsinline=1",
+  iframeTitle: "Education Through Exploration: NASA Movie Night 2021",
+};
+
 export interface NavLink {
   label: string;
   to: string;
@@ -180,14 +198,60 @@ export const stats: Stat[] = [
 
 export interface Partner {
   name: string;
+  href: string;
+  logo?: {
+    src: string;
+    width: number;
+    height: number;
+  };
 }
 
 export const partners: Partner[] = [
-  { name: "NASA" },
-  { name: "Arizona State University" },
-  { name: "Bill & Melinda Gates Foundation" },
-  { name: "Howard Hughes Medical Institute" },
-  { name: "U.S. Department of Education" },
+  {
+    name: "NASA",
+    href: "https://www.nasa.gov/",
+    logo: {
+      src: "/partners/nasa.svg",
+      width: 110,
+      height: 92,
+    },
+  },
+  {
+    name: "Arizona State University",
+    href: "https://www.asu.edu/",
+    logo: {
+      src: "/partners/arizona-state-university.png",
+      width: 400,
+      height: 72,
+    },
+  },
+  {
+    name: "Gates Foundation",
+    href: "https://www.gatesfoundation.org/",
+    logo: {
+      src: "/partners/gates-foundation.svg",
+      width: 250,
+      height: 64,
+    },
+  },
+  {
+    name: "Howard Hughes Medical Institute",
+    href: "https://www.hhmi.org/",
+    logo: {
+      src: "/partners/howard-hughes-medical-institute.png",
+      width: 1918,
+      height: 445,
+    },
+  },
+  {
+    name: "U.S. Department of Education",
+    href: "https://www.ed.gov/",
+    logo: {
+      src: "/partners/us-department-of-education.svg",
+      width: 544,
+      height: 544,
+    },
+  },
 ];
 
 // ASU-aligned accents. Text stays maroon for contrast on white; gold is used

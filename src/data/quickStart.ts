@@ -1,11 +1,7 @@
-export const advancedAuthorWikiUrl =
-  "https://etx-tech.notion.site/12162d4b114581b2a87accf1f42b23c8?v=12162d4b1145811eb21f000c459461ab";
+import { brand } from "./content";
 
 export const torusAuthorLoginUrl =
   "https://proton.oli.cmu.edu/authors/log_in";
-
-export const tourItWikiUrl =
-  "https://etx-tech.notion.site/12162d4b114581fbb9e7ebc92d554885?v=12162d4b114581aa8180000c4ca6dd67";
 
 export const tourItProductUrl = "https://infiniscope.org/page/tour-it";
 
@@ -19,6 +15,15 @@ export const simpleAuthorDemoUrl =
 
 export const simpleAuthorModulesUrl =
   "https://infiniscope.org/page/simple-author-modules";
+
+export const quickStartSupportCallout = {
+  heading: "Need more guidance?",
+  body: "The ETX team can help you get started, troubleshoot your first build, or point you toward the right next step.",
+  link: {
+    label: `Email ETX at ${brand.email}`,
+    href: `mailto:${brand.email}`,
+  },
+};
 
 export interface QuickStartStep {
   number: string;
@@ -44,10 +49,10 @@ export interface QuickStartProduct {
 export const quickStartProducts: QuickStartProduct[] = [
   {
     name: "Torus",
-    eyebrow: "Adaptive authoring",
-    blurb: "Build your first adaptive learning page with Advanced Author.",
+    eyebrow: "Flexible authoring",
+    blurb: "Build your first basic learning page in Torus.",
     detail:
-      "Create a project, add a practice page, open Advanced Author, and preview the learner experience.",
+      "Create a project, add a Foundation page, add content and a simple practice activity, then preview the learner experience.",
     to: "/quick-start/torus",
     cta: "Start with Torus",
   },
@@ -72,15 +77,15 @@ export const quickStartProducts: QuickStartProduct[] = [
   },
 ];
 
-/** First-mile guide distilled from the Advanced Author Wiki + Scribe walkthroughs. */
+/** First mile guide for building a basic Torus page. */
 export const torusQuickStartSteps: QuickStartStep[] = [
   {
     number: "01",
-    title: "Create or access your Torus account",
-    body: "Open the Torus author login and sign in with your author credentials. For now, skip “Sign in with Google” and use the standard author login path.",
+    title: "Open the Torus author login",
+    body: "Open the Torus author login and sign in with your author credentials.",
     tips: [
-      "You need an authoring account to create and edit projects. Instructor or student accounts will not open Advanced Author.",
-      "Use the Torus author login linked above (not the Google sign-in option for now).",
+      "You need an authoring account to create and edit projects.",
+      "Use the Torus author login linked above to begin.",
     ],
   },
   {
@@ -93,44 +98,44 @@ export const torusQuickStartSteps: QuickStartStep[] = [
   },
   {
     number: "03",
-    title: "Add an adaptive page and open Advanced Author",
-    body: "In your project, create a Curriculum page. Choose a practice (non-scored) adaptive page for your first build, then use Edit Page → Advanced authoring → Open In Edit Mode to start designing.",
+    title: "Add a Foundation page",
+    body: "In your project, add a new page, choose Foundation as its page purpose, and open the standard basic page editor.",
     tips: [
-      "Read-Only mode is useful when you want to inspect a build without risking edits.",
-      "Advanced Author is where you author adaptive screens, components, and states.",
+      "A Foundation page is a practical place to introduce the core ideas learners need.",
+      "Start with the basic editor so you can focus on the content and learner experience.",
     ],
   },
   {
     number: "04",
-    title: "Preview, then keep building",
-    body: "Open Preview from the page editor to experience the lesson like a learner. Use preview’s screen-hopping and Inspector tools for troubleshooting. Then return to the wiki for layers, components, states, CSS, and publishing.",
+    title: "Add content, practice, and preview",
+    body: "Add core text or media and one simple practice activity. Then preview the page to experience it as a learner and check that the content and practice work as intended.",
     tips: [
-      "Skipping around in preview can behave differently than a real learner path if your page uses layers or initial states.",
-      "When you’re ready to share, the wiki covers publishing and Direct Delivery (non-LMS) sections.",
+      "Keep the first page focused on one clear learning goal.",
+      "Preview early so you can catch unclear instructions or feedback before adding more.",
     ],
   },
 ];
 
 export const torusQuickStartTopics: QuickStartTopic[] = [
   {
-    title: "Layers, screens & subscreens",
-    blurb: "Structure adaptive pages with the building blocks learners move through.",
+    title: "Adaptive authoring with Advanced Author",
+    blurb: "Explore adaptive screens, components, states, and rules when your learning design calls for a customized path.",
   },
   {
-    title: "Components & states",
-    blurb: "Add interactions and define correct, incorrect, and initial states.",
+    title: "Responsive layouts and interactions",
+    blurb: "Create richer page layouts and add interactions that support the learning goal.",
   },
   {
-    title: "Preview & Inspector",
+    title: "Preview and Inspector",
     blurb: "Walk the lesson as a learner and inspect CAPI for troubleshooting.",
   },
   {
-    title: "Publish & Direct Delivery",
+    title: "Publishing and delivery",
     blurb: "Publish your project and share it outside an LMS when you need a learner link.",
   },
 ];
 
-/** First-mile guide distilled from the Tour It Wiki's getting-started tasks. */
+/** First mile guide for building a Tour It experience. */
 export const tourItQuickStartSteps: QuickStartStep[] = [
   {
     number: "01",
@@ -164,7 +169,7 @@ export const tourItQuickStartSteps: QuickStartStep[] = [
     body: "Link panoramas into a journey, preview the tour from a learner’s perspective, and test every hotspot and scene transition before sharing your experience.",
     tips: [
       "Check the tour on the devices your learners are most likely to use.",
-      "The full wiki covers sharing options, including Simple Author and VR paths.",
+      "Explore Simple Author and VR options after the core browser experience is working.",
     ],
   },
 ];

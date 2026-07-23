@@ -1,6 +1,6 @@
 import { QuickStartGuide } from "../components/QuickStartGuide";
 import {
-  advancedAuthorWikiUrl,
+  quickStartSupportCallout,
   torusQuickStartSteps,
   torusQuickStartTopics,
   torusAuthorLoginUrl,
@@ -9,24 +9,15 @@ import {
 export function QuickStart() {
   return (
     <QuickStartGuide
-      title="Build your first adaptive page in Torus"
-      intro="A short first-mile guide for Advanced Author. Then jump into the full wiki when you are ready for deeper topics."
+      title="Build your first basic page in Torus"
+      intro="A short first mile guide to creating a project, adding a Foundation page, and previewing a simple learning experience."
       primaryLink={{ label: "Open Torus author login", href: torusAuthorLoginUrl }}
-      secondaryLink={{ label: "Full Advanced Author Wiki", href: advancedAuthorWikiUrl }}
       steps={torusQuickStartSteps}
-      firstMileTitle="Four steps to get editing"
-      firstMileIntro="Distilled from the Advanced Author Wiki’s “Getting into Torus and Starting a Project” walkthrough. Details and screenshots live in the full wiki."
+      firstMileTitle="Four steps to your first page"
+      firstMileIntro="Start with the standard page editor and a focused learning goal. You can explore adaptive authoring after the basic page works well."
       topics={torusQuickStartTopics}
-      deeperIntro="Dive deeper into adaptive rules, responsive layouts, scored lessons, and the tools for testing and publishing your work."
-      resourceHeading="Continue in the Advanced Author Wiki"
-      resourceDescription="Step-by-step Scribe guides, interface notes, components, variables, troubleshooting, and publishing."
-      resourceLinks={[
-        {
-          label: "Open the full wiki",
-          href: advancedAuthorWikiUrl,
-          emphasis: "primary",
-        },
-      ]}
+      deeperIntro="Continue with Advanced Author, adaptive rules, responsive layouts, testing tools, and publishing when your project needs them."
+      supportCallout={quickStartSupportCallout}
       spaceVariant="gold-network-constellation"
     />
   );

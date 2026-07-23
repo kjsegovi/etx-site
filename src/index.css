@@ -78,6 +78,13 @@
     letter-spacing: -0.01em;
     line-height: 1.1;
     color: var(--color-star);
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  p {
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
 
   a {
@@ -710,6 +717,46 @@
     transform: translateY(0) scale(0.98);
   }
 
+  .etx-creator-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--color-ember-500);
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .etx-creator-link::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.2rem;
+    left: 0;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: var(--color-aqua-500);
+    content: "";
+    transform: scaleX(0.22);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+
+  .etx-creator-link:focus-visible::after,
+  .etx-creator-link:active::after {
+    transform: scaleX(1);
+  }
+
+  .etx-creator-link:focus-visible {
+    color: var(--color-ember-600);
+    transform: translateY(-1px);
+  }
+
+  .etx-creator-link:active {
+    color: var(--color-ember-600);
+    transform: translateY(0) scale(0.98);
+  }
+
   .etx-interactive-surface {
     transition:
       transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -810,6 +857,15 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .etx-creator-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .etx-creator-link:hover {
+    color: var(--color-ember-600);
+    transform: translateY(-1px);
+  }
+
   .etx-stat-tile:hover {
     background-color: rgba(255, 198, 39, 0.09);
     box-shadow:
@@ -873,9 +929,14 @@
   .etx-stat-tile,
   .etx-stat-value,
   .etx-stat-label,
-  .etx-text-link {
+  .etx-text-link,
+  .etx-creator-link {
     animation: none !important;
     transform: none !important;
     translate: none !important;
+  }
+
+  .etx-creator-link::after {
+    transform: scaleX(1) !important;
   }
 }

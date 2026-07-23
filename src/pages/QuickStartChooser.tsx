@@ -12,7 +12,7 @@ export function QuickStartChooser() {
       <PageHero
         eyebrow="Quick start"
         title="What do you want to build?"
-        intro="Choose an authoring tool for a focused first-mile guide. Each path gets you into the product, through a first build, and on to deeper documentation."
+        intro="Choose an authoring tool for a focused first-mile guide. Each path gets you into the product, through a first build, and on to practical next steps."
         spaceVariant="star-trails"
       />
 

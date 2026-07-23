@@ -106,9 +106,9 @@ export function Work() {
             </div>
             <p className="sr-only" aria-live="polite" aria-atomic="true">
               {tourState === "loading"
-                ? "Grand Canyon Caverns virtual field trip is loading."
+                ? `${workShowcase.experienceName} virtual field trip is loading.`
                 : tourState === "loaded"
-                  ? "Grand Canyon Caverns virtual field trip is ready."
+                  ? `${workShowcase.experienceName} virtual field trip is ready.`
                   : ""}
             </p>
           </Reveal>
@@ -137,7 +137,7 @@ export function Work() {
               <button
                 type="button"
                 onClick={() => setTourState("loading")}
-                aria-label="Load the Grand Canyon Caverns tour in this page"
+                aria-label={`Load the ${workShowcase.experienceName} tour in this page`}
                 className="group relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-md border-2 border-aqua-500/60 bg-star p-3 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-aqua-500 hover:shadow-[0_18px_50px_rgba(25,25,25,0.24),0_0_32px_rgba(255,198,39,0.18)] focus-visible:-translate-y-1 focus-visible:border-aqua-500 active:translate-y-0 active:scale-[0.99] motion-reduce:transform-none motion-reduce:transition-none sm:p-8"
               >
                 <span
@@ -151,7 +151,7 @@ export function Work() {
                     Interactive Tour It preview
                   </span>
                   <span className="mt-2 block font-display text-lg font-bold leading-snug text-white sm:mt-4 sm:text-3xl sm:leading-tight">
-                    Load the Grand Canyon Caverns tour
+                    Load the {workShowcase.experienceName} tour
                   </span>
                   <span className="mt-2 block text-xs leading-snug text-white/80 sm:mt-4 sm:text-base sm:leading-relaxed">
                     Select anywhere in this preview to open the tour here.

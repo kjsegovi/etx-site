@@ -31,6 +31,7 @@ export const creatorTools: CreatorTool[] = [
 
 export interface WorkShowcase {
   embedUrl: string;
+  experienceName: string;
   title: string;
   description: string;
   iframeTitle: string;
@@ -39,11 +40,13 @@ export interface WorkShowcase {
 
 export const workShowcase: WorkShowcase = {
   embedUrl:
-    "https://p.tourit.etx.asu.edu/v1fshqa2/1a6uj3akna87zla/index.html?utm_source=Portal&utm_medium=Tour-It&utm_campaign=VT+23",
-  title: "Explore Grand Canyon Caverns",
+    "https://p.tourit.etx.asu.edu/tl2jve4u/0iukh0mkixvj3ss/index.html",
+  experienceName: "Nāhuku Lava Tubes",
+  title: "Explore Nāhuku Lava Tubes",
   description:
     "See how Tour It combines panoramic scenes, media, and guided exploration in a virtual field trip. Select the preview below to load the optional interactive example. The description on this page provides the essential context.",
-  iframeTitle: "Grand Canyon Caverns virtual field trip created with Tour It.",
+  iframeTitle:
+    "Exploring Nāhuku Lava Tubes on a Rainy Day virtual field trip created with Tour It.",
   fallbackUrl:
-    "https://p.tourit.etx.asu.edu/v1fshqa2/1a6uj3akna87zla/index.html?utm_source=Portal&utm_medium=Tour-It&utm_campaign=VT+23",
+    "https://p.tourit.etx.asu.edu/tl2jve4u/0iukh0mkixvj3ss/index.html",
 };

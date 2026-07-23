@@ -6,9 +6,11 @@ import { Card } from "../components/ui/Card";
 import { GoldBar } from "../components/ui/GoldBar";
 import { Reveal } from "../components/ui/Reveal";
 import { ProjectCard } from "../components/ProjectCard";
+import { PartnerRow } from "../components/PartnerRow";
 import {
   brand,
   creatorMessage,
+  homepageVideo,
   services,
   values,
   stats,
@@ -105,7 +107,35 @@ export function Home() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12">
+        <Reveal delay={0.1} preset="scale" className="mt-12">
+          <div className="grid overflow-hidden rounded-md border border-nebula-2 bg-space shadow-sm lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
+            <div className="min-w-0 p-6 sm:p-8 lg:p-10">
+              <span className="etx-eyebrow">{homepageVideo.eyebrow}</span>
+              <h3 className="mt-3 text-3xl text-star sm:text-4xl">
+                {homepageVideo.title}
+              </h3>
+              <p className="mt-4 text-lg leading-relaxed text-mist">
+                {homepageVideo.summary}
+              </p>
+            </div>
+
+            <div className="min-w-0 p-4 pt-0 sm:p-6 sm:pt-0 lg:p-8">
+              <div className="aspect-video overflow-hidden rounded-md border-2 border-nebula-2 bg-star shadow-lg focus-within:border-aqua-600 focus-within:outline focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-aqua-500">
+                <iframe
+                  src={homepageVideo.embedUrl}
+                  title={homepageVideo.iframeTitle}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="h-full w-full border-0"
+                />
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15} className="mt-12">
           <Card className="border-l-4 border-l-aqua-500 md:p-8">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
               <div className="max-w-3xl">
@@ -124,30 +154,18 @@ export function Home() {
                         href={tool.destination}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="etx-text-link group"
+                        className="etx-creator-link"
                       >
                         {tool.name}
                         <span className="sr-only"> opens in a new tab</span>
-                        <span
-                          aria-hidden="true"
-                          className="transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
-                        >
-                          →
-                        </span>
                       </a>
                     ) : (
                       <Link
                         key={tool.name}
                         to={tool.destination}
-                        className="etx-text-link group"
+                        className="etx-creator-link"
                       >
                         {tool.name}
-                        <span
-                          aria-hidden="true"
-                          className="transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
-                        >
-                          →
-                        </span>
                       </Link>
                     ),
                   )}
@@ -277,24 +295,8 @@ export function Home() {
 
       {/* 6) PARTNERS */}
       <Section className="bg-void">
-        <Reveal className="flex flex-col items-center gap-8 text-center">
-          <p className="etx-eyebrow text-mist-2">Trusted by</p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-            {partners.map((partner, i) => (
-              <li
-                key={partner.name}
-                className="flex items-center gap-x-6 font-display text-base font-bold text-star sm:text-lg"
-              >
-                {i > 0 && (
-                  <span
-                    aria-hidden="true"
-                    className="h-4 w-px bg-nebula-2"
-                  />
-                )}
-                {partner.name}
-              </li>
-            ))}
-          </ul>
+        <Reveal>
+          <PartnerRow partners={partners} align="center" tone="strong" />
         </Reveal>
       </Section>
     </>

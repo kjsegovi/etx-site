@@ -14,19 +14,33 @@ interface GuideLink {
   emphasis?: "primary" | "secondary";
 }
 
+interface GuideResources {
+  heading: string;
+  description: string;
+  links: GuideLink[];
+}
+
+interface GuideSupportCallout {
+  heading: string;
+  body: string;
+  link: {
+    label: string;
+    href: string;
+  };
+}
+
 interface QuickStartGuideProps {
   title: string;
   intro: string;
   primaryLink: GuideLink;
-  secondaryLink: GuideLink;
+  secondaryLink?: GuideLink;
   steps: QuickStartStep[];
   firstMileTitle: string;
   firstMileIntro: string;
   topics: QuickStartTopic[];
   deeperIntro: string;
-  resourceHeading: string;
-  resourceDescription: string;
-  resourceLinks: GuideLink[];
+  resources?: GuideResources;
+  supportCallout?: GuideSupportCallout;
   spaceVariant: PageHeroSpaceVariant;
 }
 
@@ -40,11 +54,12 @@ export function QuickStartGuide({
   firstMileIntro,
   topics,
   deeperIntro,
-  resourceHeading,
-  resourceDescription,
-  resourceLinks,
+  resources,
+  supportCallout,
   spaceVariant,
 }: QuickStartGuideProps) {
+  const hasResources = resources && resources.links.length > 0;
+
   return (
     <>
       <PageHero
@@ -57,14 +72,16 @@ export function QuickStartGuide({
           <Button href={primaryLink.href} variant="gold" size="lg">
             {primaryLink.label}
           </Button>
-          <Button
-            href={secondaryLink.href}
-            variant="ghost"
-            size="lg"
-            className="border-2 border-white text-white no-underline hover:bg-white hover:text-ember-500"
-          >
-            {secondaryLink.label}
-          </Button>
+          {secondaryLink && (
+            <Button
+              href={secondaryLink.href}
+              variant="ghost"
+              size="lg"
+              className="border-2 border-white text-white no-underline hover:bg-white hover:text-ember-500"
+            >
+              {secondaryLink.label}
+            </Button>
+          )}
         </div>
       </PageHero>
 
@@ -82,7 +99,7 @@ export function QuickStartGuide({
               preset="stagger"
               delay={Math.min(index * 0.06, 0.3)}
               as="li"
-              className="grid gap-6 border-t border-nebula-2 pt-8 lg:grid-cols-[minmax(0,12rem)_minmax(0,1fr)] lg:gap-12"
+              className="grid gap-6 border-t border-nebula-2 pt-8 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-12"
             >
               <div>
                 <span
@@ -139,28 +156,55 @@ export function QuickStartGuide({
           ))}
         </div>
 
-        <Reveal delay={0.15} preset="scale" className="mt-12">
-          <div className="flex flex-col items-start gap-5 rounded-md border border-nebula-2 bg-white p-8 sm:flex-row sm:items-center sm:justify-between">
-            <div className="max-w-xl">
-              <h3 className="text-xl text-star">{resourceHeading}</h3>
-              <p className="mt-2 text-base leading-relaxed text-mist">
-                {resourceDescription}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {resourceLinks.map((link) => (
-                <Button
-                  key={`${link.label}-${link.href}`}
-                  href={link.href}
-                  variant={link.emphasis ?? "secondary"}
-                  size="lg"
-                >
-                  {link.label}
-                </Button>
-              ))}
-            </div>
+        {(hasResources || supportCallout) && (
+          <div className="mt-12 flex flex-col gap-6">
+            {hasResources && (
+              <Reveal delay={0.15} preset="scale">
+                <div className="flex flex-col items-start gap-5 rounded-md border border-nebula-2 bg-white p-8 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="max-w-xl">
+                    <h3 className="text-xl text-star">{resources.heading}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-mist">
+                      {resources.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {resources.links.map((link) => (
+                      <Button
+                        key={`${link.label}-${link.href}`}
+                        href={link.href}
+                        variant={link.emphasis ?? "secondary"}
+                        size="lg"
+                      >
+                        {link.label}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            )}
+
+            {supportCallout && (
+              <Reveal delay={hasResources ? 0.21 : 0.15} preset="scale">
+                <div className="flex flex-col items-start gap-5 rounded-md border border-nebula-2 bg-white p-8 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="max-w-xl">
+                    <h3 className="text-xl text-star">
+                      {supportCallout.heading}
+                    </h3>
+                    <p className="mt-2 text-base leading-relaxed text-mist">
+                      {supportCallout.body}
+                    </p>
+                  </div>
+                  <a
+                    href={supportCallout.link.href}
+                    className="inline-flex items-center justify-center rounded-md border-2 border-ember-500 px-7 py-3.5 font-display text-base font-bold text-ember-500 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-ember-500 hover:text-white hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:bg-ember-500 focus-visible:text-white focus-visible:shadow-md active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    {supportCallout.link.label}
+                  </a>
+                </div>
+              </Reveal>
+            )}
           </div>
-        </Reveal>
+        )}
       </Section>
     </>
   );
