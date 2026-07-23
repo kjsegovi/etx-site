@@ -4,13 +4,27 @@ export const brand = {
   name: "ETX",
   fullName: "Center for Education Through Exploration",
   tagline: "The science of learning. The art of storytelling. Education for everyone.",
+  heroHeadline: {
+    opening: "The science of learning.",
+    accent: "The art of storytelling.",
+    closing: "Education for everyone.",
+  },
+  heroBody:
+    "We combine learning science, storytelling, technology, and human centered design to create meaningful learning experiences. We also build tools that empower educators, instructors, and organizations to create, adapt, and deliver their own.",
   positioning:
     "We're a learning-experience design studio. Partner with us to turn ideas into educational experiences people actually want to learn from.",
   mission:
-    "We don't build lessons. We design learning experiences. By combining learning science, storytelling, technology, and human-centered design, we create educational experiences that engage learners, support instructors, and produce meaningful outcomes.",
-  missionShort: "We don't build lessons. We design learning experiences.",
-  email: "kjsegovi@asu.edu",
+    "Scientists, educators, and learning designers work together to transform authentic research into engaging educational experiences. Every project is grounded in learning science and designed to inspire curiosity, exploration, and discovery.",
+  missionShort:
+    "We don’t build lessons. We design learning experiences and the tools that bring them to life.",
+  email: "etx@asu.edu",
   parent: "Arizona State University",
+};
+
+export const creatorMessage = {
+  eyebrow: "Creator tools",
+  title: "We catalyze creators.",
+  body: "Educators, instructors, and organizations can use Torus, Simple Author, and Tour It to create, adapt, and deliver meaningful learning experiences of their own.",
 };
 
 export interface NavLink {
@@ -44,13 +58,13 @@ export const services: Service[] = [
     accent: "ember",
   },
   {
-    title: "Edtech & platform design",
+    title: "Edtech and platform design",
     blurb:
-      "We design and build the tools that deliver learning — open, flexible, and made for real classrooms.",
+      "We design, build, and offer open, flexible tools for real classrooms. Educators can use them as they are, adapt existing content, or create learning experiences of their own.",
     points: [
-      "Interactive simulations & explorations",
-      "Authoring tools like Tour It for virtual field trips",
-      "Open educational practices and platforms",
+      "Torus for adaptive authoring and delivery",
+      "Simple Author for guided experience creation",
+      "Tour It for immersive virtual field trips",
     ],
     accent: "aqua",
   },
@@ -161,7 +175,7 @@ export const stats: Stat[] = [
   { value: "15+", label: "years designing learning experiences" },
   { value: "6", label: "flagship products & platforms" },
   { value: "1000s", label: "of educators & learners reached" },
-  { value: "NASA", label: "-funded research & content" },
+  { value: "NASA", label: "funded research and content" },
 ];
 
 export interface Partner {

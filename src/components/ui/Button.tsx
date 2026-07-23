@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
-import type { ReactNode } from "react";
+import type { MouseEventHandler, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "gold" | "ghost";
 type Size = "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md font-display font-bold transition-all duration-150 focus-visible:outline-none disabled:opacity-50";
+  "group inline-flex items-center justify-center gap-2 rounded-md border-2 font-display font-bold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:shadow-md active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  // ASU maroon fill
-  primary: "bg-ember-500 text-white hover:bg-ember-600",
+  // ASU gold fill with rich black text
+  primary:
+    "border-transparent bg-aqua-500 text-star hover:border-aqua-600 hover:bg-aqua-600",
   // outline maroon
   secondary:
-    "border-2 border-ember-500 text-ember-500 hover:bg-ember-500 hover:text-white",
+    "border-ember-500 text-ember-500 hover:border-ember-600 hover:bg-ember-500 hover:text-white",
   // ASU gold fill with rich-black text
-  gold: "bg-aqua-500 text-star hover:bg-aqua-600",
-  ghost: "text-ember-500 hover:text-ember-600 underline underline-offset-4 decoration-2",
+  gold:
+    "border-transparent bg-aqua-500 text-star hover:border-aqua-600 hover:bg-aqua-600",
+  ghost:
+    "border-transparent text-ember-500 underline decoration-aqua-500 decoration-[3px] underline-offset-4 hover:text-ember-600",
 };
 
 const sizes: Record<Size, string> = {
@@ -28,6 +31,7 @@ interface CommonProps {
   variant?: Variant;
   size?: Size;
   className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 interface LinkProps extends CommonProps {
@@ -47,20 +51,32 @@ export function Button({
   variant = "primary",
   size = "md",
   className = "",
+  onClick,
   ...rest
 }: ButtonProps) {
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
 
   if ("href" in rest && rest.href) {
     return (
-      <a href={rest.href} target="_blank" rel="noreferrer" className={classes}>
+      <a
+        href={rest.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+        onClick={onClick}
+      >
         {children}
+        <span className="sr-only"> opens in a new tab</span>
       </a>
     );
   }
 
   return (
-    <Link to={(rest as LinkProps).to} className={classes}>
+    <Link
+      to={(rest as LinkProps).to}
+      className={classes}
+      onClick={onClick}
+    >
       {children}
     </Link>
   );

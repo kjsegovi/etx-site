@@ -3,6 +3,7 @@ import { Section, SectionHeader } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
+import { GoldBar } from "../components/ui/GoldBar";
 import { brand, services, themVsUs, accentClasses } from "../data/content";
 
 export function Services() {
@@ -12,14 +13,15 @@ export function Services() {
         eyebrow="Services"
         title="One studio, every layer of the learning experience"
         intro={brand.positioning}
+        spaceVariant="orbital-rings"
       />
 
       <Section className="bg-white">
-        <Reveal className="max-w-3xl">
+        <Reveal preset="slide" className="max-w-3xl">
           <p className="text-2xl font-bold leading-snug text-star sm:text-3xl">
             {brand.missionShort}
           </p>
-          <span className="etx-goldbar mt-6" aria-hidden="true" />
+          <GoldBar className="mt-6" />
           <p className="mt-6 text-lg leading-relaxed text-mist">
             Most partners hand you a slice — a video here, a slide deck there. We
             design across the whole stack: the knowledge, the story, the
@@ -39,7 +41,11 @@ export function Services() {
             const accent = accentClasses[service.accent];
             const reversed = index % 2 === 1;
             return (
-              <Reveal key={service.title} delay={Math.min(index * 0.08, 0.32)}>
+              <Reveal
+                key={service.title}
+                preset="stagger"
+                delay={Math.min(index * 0.08, 0.32)}
+              >
                 <Card className={`border-l-4 ${accent.border} md:p-8`}>
                   <div
                     className={`flex flex-col gap-8 md:flex-row md:items-start md:gap-12 ${
@@ -85,7 +91,7 @@ export function Services() {
           intro="The market is crowded with vendors. Here's how the way we work sets a higher bar."
         />
 
-        <Reveal delay={0.1} className="mt-12">
+        <Reveal preset="scale" delay={0.1} className="mt-12">
           <div className="overflow-hidden rounded-md border border-nebula-2 bg-white shadow-sm">
             <div className="grid grid-cols-1 border-b border-nebula-2 sm:grid-cols-2">
               <div className="px-6 py-4">
@@ -122,17 +128,17 @@ export function Services() {
         </Reveal>
       </Section>
 
-      <Section className="etx-maroon-band">
-        <Reveal className="flex flex-col items-start gap-6">
-          <h2 className="max-w-2xl text-3xl text-white sm:text-4xl">
+      <Section className="border-t border-nebula-2 bg-space">
+        <Reveal preset="scale" className="flex flex-col items-start gap-6">
+          <h2 className="max-w-2xl text-3xl text-star sm:text-4xl">
             Have an idea worth learning from?
           </h2>
-          <span className="etx-goldbar" aria-hidden="true" />
-          <p className="max-w-xl text-lg leading-relaxed text-white/90">
+          <GoldBar />
+          <p className="max-w-xl text-lg leading-relaxed text-mist">
             Tell us what you're trying to teach and who you're trying to reach.
             We'll help you design an experience around it.
           </p>
-          <Button to="/quick-start" variant="gold" size="lg">
+          <Button to="/quick-start" size="lg">
             Quick start
           </Button>
         </Reveal>

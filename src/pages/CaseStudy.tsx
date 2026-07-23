@@ -3,6 +3,7 @@ import { PageHero } from "../components/PageHero";
 import { Section, SectionHeader } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
 import { Button } from "../components/ui/Button";
+import { GoldBar } from "../components/ui/GoldBar";
 import { accentClasses } from "../data/content";
 import {
   getProject,
@@ -33,7 +34,7 @@ function ResearchList({ items, accentDot }: { items: ResearchItem[]; accentDot: 
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-lg font-bold text-star underline decoration-2 underline-offset-4 transition-colors hover:text-ember-500"
+                className="text-lg font-bold text-star underline decoration-aqua-500 decoration-[3px] underline-offset-4 transition-colors hover:text-ember-500 focus-visible:text-ember-500"
               >
                 {item.title}
               </a>
@@ -71,6 +72,8 @@ export function CaseStudy() {
         eyebrow={`${project.category} · ${project.subject}`}
         title={project.name}
         intro={project.summary}
+        spaceVariant="project-nebula"
+        projectAccent={project.accent}
       >
         <p className="max-w-2xl text-xl font-bold leading-snug text-white sm:text-2xl">
           {project.tagline}
@@ -149,8 +152,11 @@ export function CaseStudy() {
             </Reveal>
 
             {project.stat && (
-              <Reveal className="rounded-md border border-nebula-2 bg-space p-8">
-                <span className="etx-goldbar mb-4" aria-hidden="true" />
+              <Reveal
+                preset="scale"
+                className="rounded-md border border-nebula-2 bg-space p-8"
+              >
+                <GoldBar className="mb-4" />
                 <div
                   className={`font-display text-5xl font-bold sm:text-6xl ${accent.text}`}
                 >
@@ -179,21 +185,21 @@ export function CaseStudy() {
       )}
 
       <Section className="bg-space border-t border-nebula-2">
-        <Reveal>
+        <Reveal preset="scale">
           <Link
             to={`/work/${next.slug}`}
-            className="group flex flex-col gap-3 rounded-md border border-nebula-2 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-ember-500/40 hover:shadow-md sm:flex-row sm:items-center sm:justify-between"
+            className="group flex flex-col gap-3 rounded-md border border-nebula-2 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-aqua-600 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:border-aqua-600 focus-visible:shadow-lg active:translate-y-0 active:scale-[0.99] motion-reduce:transform-none sm:flex-row sm:items-center sm:justify-between"
           >
             <div>
               <span className="etx-eyebrow">Next project</span>
-              <div className="mt-3 font-display text-2xl font-bold text-star transition-colors group-hover:text-ember-500 sm:text-3xl">
+              <div className="mt-3 font-display text-2xl font-bold text-star transition-colors group-hover:text-ember-500 group-focus-visible:text-ember-500 sm:text-3xl">
                 {next.name}
               </div>
               <div className="mt-1 text-mist-2">{next.tagline}</div>
             </div>
             <span
               aria-hidden
-              className="font-display text-3xl font-bold text-ember-500 transition-transform group-hover:translate-x-1"
+              className="font-display text-3xl font-bold text-ember-500 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
             >
               →
             </span>

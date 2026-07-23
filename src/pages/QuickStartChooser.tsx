@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PageHero } from "../components/PageHero";
 import { Card } from "../components/ui/Card";
+import { GoldBar } from "../components/ui/GoldBar";
 import { Reveal } from "../components/ui/Reveal";
 import { Section, SectionHeader } from "../components/ui/Section";
 import { quickStartProducts } from "../data/quickStart";
@@ -12,16 +13,17 @@ export function QuickStartChooser() {
         eyebrow="Quick start"
         title="What do you want to build?"
         intro="Choose an authoring tool for a focused first-mile guide. Each path gets you into the product, through a first build, and on to deeper documentation."
+        spaceVariant="star-trails"
       />
 
       <Section>
         <SectionHeader
           eyebrow="Choose your path"
           title="Start with the right authoring workflow"
-          intro="Build an adaptive learning page in Torus or create an immersive 360° field trip in Tour It."
+          intro="Build adaptive learning experiences in Torus or Simple Author, or create an immersive 360° field trip in Tour It."
         />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {quickStartProducts.map((product, index) => (
             <Reveal
               key={product.name}
@@ -35,8 +37,8 @@ export function QuickStartChooser() {
               >
                 <Card interactive className="flex h-full flex-col p-8 sm:p-10">
                   <span className="etx-eyebrow">{product.eyebrow}</span>
-                  <span className="etx-goldbar mt-5" aria-hidden="true" />
-                  <h2 className="mt-6 text-3xl text-star transition-colors group-hover:text-ember-500">
+                  <GoldBar className="mt-5" />
+                  <h2 className="mt-6 text-3xl text-star transition-colors group-hover:text-ember-500 group-focus-visible:text-ember-500">
                     {product.name}
                   </h2>
                   <p className="mt-4 text-lg font-bold leading-snug text-star">
@@ -49,7 +51,7 @@ export function QuickStartChooser() {
                     {product.cta}
                     <span
                       aria-hidden
-                      className="transition-transform group-hover:translate-x-1"
+                      className="transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
                     >
                       →
                     </span>

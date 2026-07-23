@@ -86,8 +86,9 @@
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-ember-500);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-star) !important;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px var(--color-aqua-500) !important;
     border-radius: 2px;
   }
 }
@@ -127,6 +128,11 @@
     border-radius: 2px;
   }
 
+  .etx-rule-reveal {
+    transform-origin: left;
+    animation: etx-rule-grow 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   /* Solid ASU maroon band with white text (hero / CTA) */
   .etx-maroon-band {
     background: var(--color-ember-500);
@@ -144,6 +150,697 @@
   .etx-hairline {
     border-color: var(--color-nebula-2);
   }
+
+  .etx-space-hero {
+    isolation: isolate;
+    background: #070707;
+    color: #ffffff;
+  }
+
+  .etx-space-art {
+    --space-accent: #8c1d40;
+    --space-shift-far-x: 0px;
+    --space-shift-far-y: 0px;
+    --space-shift-mid-x: 0px;
+    --space-shift-mid-y: 0px;
+    --space-shift-near-x: 0px;
+    --space-shift-near-y: 0px;
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: #070707;
+    background-image:
+      radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 19% 72%, rgba(255, 255, 255, 0.48) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 31% 38%, rgba(255, 198, 39, 0.7) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 48% 82%, rgba(255, 255, 255, 0.6) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 64% 26%, rgba(255, 255, 255, 0.55) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 76% 68%, rgba(255, 198, 39, 0.62) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 91% 16%, rgba(255, 255, 255, 0.75) 0 1px, transparent 1.5px);
+    background-size:
+      17rem 13rem,
+      21rem 17rem,
+      29rem 23rem,
+      25rem 19rem,
+      31rem 21rem,
+      27rem 25rem,
+      23rem 15rem;
+    animation: etx-star-drift 26s ease-in-out infinite alternate;
+  }
+
+  .etx-space-art::before,
+  .etx-space-art::after,
+  .etx-space-layer {
+    position: absolute;
+    display: block;
+    content: "";
+    pointer-events: none;
+    transition: translate 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: translate;
+  }
+
+  .etx-space-art::before {
+    translate: var(--space-shift-mid-x) var(--space-shift-mid-y);
+  }
+
+  .etx-space-art::after,
+  .etx-space-layer-a {
+    translate: var(--space-shift-near-x) var(--space-shift-near-y);
+  }
+
+  .etx-space-layer-b {
+    translate: var(--space-shift-mid-x) var(--space-shift-mid-y);
+  }
+
+  .etx-space-layer-c {
+    translate: var(--space-shift-far-x) var(--space-shift-far-y);
+  }
+
+  .etx-space-home::before {
+    inset: -20% -8% -20% 38%;
+    background:
+      radial-gradient(ellipse at 70% 52%, rgba(140, 29, 64, 0.52), transparent 42%),
+      radial-gradient(ellipse at 55% 48%, rgba(168, 51, 85, 0.18), transparent 58%);
+    filter: blur(8px);
+  }
+
+  .etx-space-home::after {
+    width: 48rem;
+    height: 19rem;
+    right: -12rem;
+    top: 2rem;
+    border: 1px solid rgba(255, 198, 39, 0.42);
+    border-radius: 50%;
+    transform: rotate(-17deg);
+  }
+
+  .etx-space-home .etx-space-layer-a {
+    width: 39rem;
+    height: 15rem;
+    right: -9rem;
+    top: 4.5rem;
+    border: 1px solid rgba(255, 198, 39, 0.18);
+    border-radius: 50%;
+    transform: rotate(-17deg);
+  }
+
+  .etx-space-home .etx-space-layer-b {
+    width: 0.6rem;
+    height: 0.6rem;
+    right: 23%;
+    top: 21%;
+    border-radius: 999px;
+    background: var(--color-aqua-500);
+    box-shadow:
+      0 0 0 0.35rem rgba(255, 198, 39, 0.08),
+      0 0 1.6rem rgba(255, 198, 39, 0.72);
+    animation: etx-space-pulse 4s ease-in-out infinite;
+  }
+
+  .etx-space-home .etx-space-layer-c {
+    width: 22rem;
+    height: 22rem;
+    right: 5%;
+    bottom: -17rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+  }
+
+  .etx-space-constellation-clusters::before {
+    inset: 5% 2% 3% 54%;
+    opacity: 0.9;
+    background:
+      linear-gradient(27deg, transparent 0 46%, rgba(255, 198, 39, 0.34) 46.2% 46.6%, transparent 46.8%),
+      linear-gradient(142deg, transparent 0 53%, rgba(255, 255, 255, 0.18) 53.2% 53.5%, transparent 53.7%),
+      radial-gradient(circle at 18% 70%, #ffc627 0 2px, transparent 2.6px),
+      radial-gradient(circle at 42% 42%, #ffffff 0 1.5px, transparent 2.2px),
+      radial-gradient(circle at 69% 66%, #ffc627 0 2px, transparent 2.7px),
+      radial-gradient(circle at 85% 24%, #ffffff 0 1.5px, transparent 2.2px);
+  }
+
+  .etx-space-constellation-clusters::after {
+    width: 28rem;
+    height: 28rem;
+    right: -7rem;
+    top: -10rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140, 29, 64, 0.3), transparent 65%);
+    filter: blur(10px);
+  }
+
+  .etx-space-constellation-clusters .etx-space-layer-a,
+  .etx-space-constellation-clusters .etx-space-layer-b {
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow:
+      5rem 2rem 0 -1px rgba(255, 255, 255, 0.9),
+      9rem -1rem 0 rgba(255, 198, 39, 0.9),
+      13rem 3rem 0 -1px rgba(255, 255, 255, 0.82),
+      17rem 0 0 rgba(255, 198, 39, 0.85);
+  }
+
+  .etx-space-constellation-clusters .etx-space-layer-a {
+    right: 34%;
+    bottom: 25%;
+  }
+
+  .etx-space-constellation-clusters .etx-space-layer-b {
+    right: 13%;
+    top: 19%;
+    transform: rotate(68deg) scale(0.75);
+  }
+
+  .etx-space-orbital-rings::before,
+  .etx-space-orbital-rings::after,
+  .etx-space-orbital-rings .etx-space-layer-a {
+    border: 1px solid rgba(255, 198, 39, 0.28);
+    border-radius: 50%;
+    transform: rotate(-18deg);
+  }
+
+  .etx-space-orbital-rings::before {
+    width: 44rem;
+    height: 18rem;
+    right: -9rem;
+    top: 1rem;
+  }
+
+  .etx-space-orbital-rings::after {
+    width: 34rem;
+    height: 13rem;
+    right: -4rem;
+    top: 4rem;
+    border-color: rgba(255, 255, 255, 0.13);
+  }
+
+  .etx-space-orbital-rings .etx-space-layer-a {
+    width: 23rem;
+    height: 8rem;
+    right: 2rem;
+    top: 6.5rem;
+  }
+
+  .etx-space-orbital-rings .etx-space-layer-b {
+    width: 0.7rem;
+    height: 0.7rem;
+    right: 16%;
+    top: 32%;
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow: 0 0 1.5rem rgba(255, 198, 39, 0.72);
+    animation: etx-space-pulse 4.5s ease-in-out infinite;
+  }
+
+  .etx-space-orbital-rings .etx-space-layer-c {
+    width: 28rem;
+    height: 28rem;
+    right: -11rem;
+    bottom: -18rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140, 29, 64, 0.34), transparent 66%);
+  }
+
+  .etx-space-exploration-trajectories::before,
+  .etx-space-exploration-trajectories::after,
+  .etx-space-exploration-trajectories .etx-space-layer-a {
+    width: 42rem;
+    height: 16rem;
+    right: -9rem;
+    border-top: 1px solid rgba(255, 198, 39, 0.38);
+    border-radius: 50%;
+    transform: rotate(-13deg);
+  }
+
+  .etx-space-exploration-trajectories::before {
+    top: 2rem;
+  }
+
+  .etx-space-exploration-trajectories::after {
+    top: 6rem;
+    right: -14rem;
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .etx-space-exploration-trajectories .etx-space-layer-a {
+    top: 10rem;
+    right: -18rem;
+    border-color: rgba(255, 198, 39, 0.18);
+  }
+
+  .etx-space-exploration-trajectories .etx-space-layer-b {
+    width: 0.55rem;
+    height: 0.55rem;
+    right: 29%;
+    top: 27%;
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow:
+      0 0 1.4rem rgba(255, 198, 39, 0.8),
+      9rem 6rem 0 -1px rgba(255, 255, 255, 0.72);
+  }
+
+  .etx-space-exploration-trajectories .etx-space-layer-c {
+    inset: 0 0 0 45%;
+    background: radial-gradient(ellipse at 70% 90%, rgba(140, 29, 64, 0.3), transparent 55%);
+  }
+
+  .etx-space-star-trails::before {
+    inset: -35% -5% -25% 52%;
+    opacity: 0.62;
+    transform: rotate(-17deg);
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0 2.8rem,
+      rgba(255, 255, 255, 0.2) 2.85rem 2.92rem,
+      transparent 3rem 5.4rem,
+      rgba(255, 198, 39, 0.38) 5.45rem 5.55rem
+    );
+    mask-image: linear-gradient(to right, transparent, #000 42%, #000);
+  }
+
+  .etx-space-star-trails::after {
+    width: 38rem;
+    height: 25rem;
+    right: -7rem;
+    bottom: -15rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140, 29, 64, 0.38), transparent 68%);
+  }
+
+  .etx-space-star-trails .etx-space-layer-a,
+  .etx-space-star-trails .etx-space-layer-b,
+  .etx-space-star-trails .etx-space-layer-c {
+    right: 12%;
+    width: 7rem;
+    height: 1px;
+    transform: rotate(-17deg);
+    background: linear-gradient(to right, transparent, rgba(255, 198, 39, 0.8));
+    box-shadow: 0 0 1rem rgba(255, 198, 39, 0.28);
+  }
+
+  .etx-space-star-trails .etx-space-layer-a {
+    top: 22%;
+  }
+
+  .etx-space-star-trails .etx-space-layer-b {
+    top: 48%;
+    right: 24%;
+    width: 10rem;
+  }
+
+  .etx-space-star-trails .etx-space-layer-c {
+    top: 72%;
+    right: 6%;
+    width: 5rem;
+  }
+
+  .etx-space-gold-network-constellation::before {
+    inset: 2% -2% 0 50%;
+    background:
+      linear-gradient(28deg, transparent 0 47%, rgba(255, 198, 39, 0.34) 47.2% 47.5%, transparent 47.7%),
+      linear-gradient(151deg, transparent 0 52%, rgba(255, 198, 39, 0.22) 52.2% 52.5%, transparent 52.7%),
+      linear-gradient(78deg, transparent 0 58%, rgba(255, 255, 255, 0.13) 58.2% 58.5%, transparent 58.7%);
+  }
+
+  .etx-space-gold-network-constellation::after {
+    width: 31rem;
+    height: 31rem;
+    right: -9rem;
+    top: -14rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 198, 39, 0.14), transparent 67%);
+  }
+
+  .etx-space-gold-network-constellation .etx-space-layer-a {
+    width: 0.45rem;
+    height: 0.45rem;
+    right: 35%;
+    top: 24%;
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow:
+      6rem 2.5rem 0 -1px #ffffff,
+      11rem 0.5rem 0 #ffc627,
+      15rem 5rem 0 -1px #ffffff,
+      19rem 2rem 0 #ffc627,
+      9rem 8rem 0 #ffc627;
+  }
+
+  .etx-space-gold-network-constellation .etx-space-layer-b {
+    inset: 15% 0 0 58%;
+    background: radial-gradient(circle, rgba(140, 29, 64, 0.28), transparent 56%);
+  }
+
+  .etx-space-panoramic-horizon-arc::before,
+  .etx-space-panoramic-horizon-arc::after,
+  .etx-space-panoramic-horizon-arc .etx-space-layer-a {
+    left: 42%;
+    width: 68%;
+    border: 1px solid transparent;
+    border-top-color: rgba(255, 198, 39, 0.5);
+    border-radius: 50%;
+  }
+
+  .etx-space-panoramic-horizon-arc::before {
+    height: 25rem;
+    bottom: -19rem;
+  }
+
+  .etx-space-panoramic-horizon-arc::after {
+    height: 20rem;
+    bottom: -15rem;
+    left: 48%;
+    border-top-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .etx-space-panoramic-horizon-arc .etx-space-layer-a {
+    height: 15rem;
+    bottom: -11rem;
+    left: 54%;
+    border-top-color: rgba(255, 198, 39, 0.22);
+  }
+
+  .etx-space-panoramic-horizon-arc .etx-space-layer-b {
+    inset: 35% 0 0 48%;
+    background: radial-gradient(ellipse at 70% 100%, rgba(140, 29, 64, 0.42), transparent 62%);
+  }
+
+  .etx-space-panoramic-horizon-arc .etx-space-layer-c {
+    width: 0.55rem;
+    height: 0.55rem;
+    right: 19%;
+    top: 31%;
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow: 0 0 1.4rem rgba(255, 198, 39, 0.72);
+  }
+
+  .etx-space-project-nebula::before {
+    inset: -20% -5% -24% 38%;
+    background:
+      radial-gradient(ellipse at 72% 54%, color-mix(in srgb, var(--space-accent) 46%, transparent), transparent 46%),
+      radial-gradient(ellipse at 55% 48%, color-mix(in srgb, var(--space-accent) 18%, transparent), transparent 62%);
+    filter: blur(7px);
+  }
+
+  .etx-space-project-nebula::after {
+    inset: 8% 2% 10% 59%;
+    background:
+      linear-gradient(31deg, transparent 0 48%, rgba(255, 198, 39, 0.28) 48.2% 48.5%, transparent 48.7%),
+      linear-gradient(141deg, transparent 0 55%, rgba(255, 255, 255, 0.14) 55.2% 55.5%, transparent 55.7%);
+  }
+
+  .etx-space-project-nebula .etx-space-layer-a {
+    width: 0.4rem;
+    height: 0.4rem;
+    right: 31%;
+    top: 28%;
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow:
+      7rem 3rem 0 -1px #ffffff,
+      12rem -1rem 0 var(--space-accent),
+      16rem 4rem 0 -1px #ffffff;
+  }
+
+  .etx-space-adaptive-pathways::before {
+    inset: 5% -2% 0 45%;
+    opacity: 0.88;
+    background:
+      linear-gradient(24deg, transparent 0 49.4%, rgba(255, 198, 39, 0.42) 49.6% 49.9%, transparent 50.1%),
+      linear-gradient(-25deg, transparent 0 49.4%, rgba(255, 198, 39, 0.3) 49.6% 49.9%, transparent 50.1%),
+      linear-gradient(0deg, transparent 0 49.4%, rgba(255, 255, 255, 0.16) 49.6% 49.9%, transparent 50.1%),
+      radial-gradient(circle at 15% 50%, #ffc627 0 2.5px, transparent 3.2px),
+      radial-gradient(circle at 48% 50%, #ffffff 0 1.8px, transparent 2.6px),
+      radial-gradient(circle at 78% 20%, #ffc627 0 2.5px, transparent 3.2px),
+      radial-gradient(circle at 82% 50%, #ffffff 0 1.8px, transparent 2.6px),
+      radial-gradient(circle at 78% 80%, #ffc627 0 2.5px, transparent 3.2px);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000);
+  }
+
+  .etx-space-adaptive-pathways::after {
+    width: 32rem;
+    height: 32rem;
+    right: -10rem;
+    top: -15rem;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, rgba(255, 198, 39, 0.13), transparent 58%),
+      radial-gradient(circle at 35% 72%, rgba(140, 29, 64, 0.34), transparent 64%);
+    filter: blur(5px);
+  }
+
+  .etx-space-adaptive-pathways .etx-space-layer-a,
+  .etx-space-adaptive-pathways .etx-space-layer-b,
+  .etx-space-adaptive-pathways .etx-space-layer-c {
+    right: 8%;
+    width: 16rem;
+    height: 7rem;
+    border-top: 1px solid rgba(255, 198, 39, 0.34);
+    border-radius: 50%;
+    transform-origin: right center;
+  }
+
+  .etx-space-adaptive-pathways .etx-space-layer-a {
+    top: 14%;
+    transform: rotate(-14deg);
+  }
+
+  .etx-space-adaptive-pathways .etx-space-layer-b {
+    top: 41%;
+    right: 5%;
+    border-top-color: rgba(255, 255, 255, 0.15);
+    transform: rotate(2deg);
+  }
+
+  .etx-space-adaptive-pathways .etx-space-layer-c {
+    top: 60%;
+    transform: rotate(17deg);
+  }
+
+  .etx-space-lost-signal {
+    background-image:
+      radial-gradient(circle at 12% 26%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 36% 74%, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 62% 18%, rgba(255, 198, 39, 0.56) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 87% 66%, rgba(255, 255, 255, 0.48) 0 1px, transparent 1.4px);
+    background-size: 31rem 27rem, 37rem 31rem, 43rem 35rem, 29rem 25rem;
+  }
+
+  .etx-space-lost-signal::before,
+  .etx-space-lost-signal::after,
+  .etx-space-lost-signal .etx-space-layer-a {
+    width: 17rem;
+    height: 17rem;
+    right: 10%;
+    top: 50%;
+    border: 1px solid rgba(255, 198, 39, 0.32);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .etx-space-lost-signal::after {
+    width: 11rem;
+    height: 11rem;
+    right: calc(10% + 3rem);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .etx-space-lost-signal .etx-space-layer-a {
+    width: 5rem;
+    height: 5rem;
+    right: calc(10% + 6rem);
+    border-color: rgba(255, 198, 39, 0.48);
+  }
+
+  .etx-space-lost-signal .etx-space-layer-b {
+    width: 0.65rem;
+    height: 0.65rem;
+    right: calc(10% + 8.2rem);
+    top: calc(50% - 0.3rem);
+    border-radius: 50%;
+    background: #ffc627;
+    box-shadow: 0 0 1.8rem rgba(255, 198, 39, 0.76);
+    animation: etx-space-pulse 3.2s ease-in-out infinite;
+  }
+
+  .etx-text-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    color: var(--color-ember-500);
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .etx-text-link::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.2rem;
+    left: 0;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: var(--color-aqua-500);
+    content: "";
+    transform: scaleX(0.22);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+
+  .etx-text-link:hover::after,
+  .etx-text-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .etx-text-link:hover,
+  .etx-text-link:focus-visible {
+    color: var(--color-ember-600);
+    transform: translateY(-1px);
+  }
+
+  .etx-text-link:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .etx-interactive-surface {
+    transition:
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .etx-interactive-title,
+  .etx-interactive-arrow {
+    transition:
+      color 180ms ease,
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .etx-interactive-surface:focus-visible,
+  .etx-interactive-surface:focus-within {
+    border-color: var(--color-aqua-600);
+    box-shadow:
+      0 16px 32px rgba(25, 25, 25, 0.14),
+      0 0 0 1px rgba(255, 198, 39, 0.45);
+    transform: translateY(-3px);
+  }
+
+  .etx-interactive-surface:focus-visible .etx-interactive-title,
+  .etx-interactive-surface:focus-within .etx-interactive-title {
+    color: var(--color-ember-500);
+  }
+
+  .etx-interactive-surface:focus-visible .etx-interactive-arrow,
+  .etx-interactive-surface:focus-within .etx-interactive-arrow {
+    transform: translateX(0.25rem);
+  }
+
+  .etx-interactive-surface:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
+  .etx-stat-tile {
+    transition:
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .etx-stat-value,
+  .etx-stat-label {
+    transition:
+      color 200ms ease,
+      text-shadow 200ms ease,
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes etx-star-drift {
+  from {
+    background-position:
+      var(--space-shift-far-x) var(--space-shift-far-y),
+      var(--space-shift-far-x) var(--space-shift-far-y),
+      var(--space-shift-far-x) var(--space-shift-far-y),
+      var(--space-shift-far-x) var(--space-shift-far-y),
+      var(--space-shift-far-x) var(--space-shift-far-y),
+      var(--space-shift-far-x) var(--space-shift-far-y),
+      var(--space-shift-far-x) var(--space-shift-far-y);
+  }
+  to {
+    background-position:
+      calc(var(--space-shift-far-x) + 1.2rem) calc(var(--space-shift-far-y) + 0.7rem),
+      calc(var(--space-shift-far-x) - 0.8rem) calc(var(--space-shift-far-y) + 1rem),
+      calc(var(--space-shift-far-x) + 0.7rem) calc(var(--space-shift-far-y) - 0.8rem),
+      calc(var(--space-shift-far-x) - 1rem) calc(var(--space-shift-far-y) - 0.5rem),
+      calc(var(--space-shift-far-x) + 0.9rem) calc(var(--space-shift-far-y) + 0.8rem),
+      calc(var(--space-shift-far-x) - 0.7rem) calc(var(--space-shift-far-y) + 0.7rem),
+      calc(var(--space-shift-far-x) + 1rem) calc(var(--space-shift-far-y) - 0.7rem);
+  }
+}
+
+@keyframes etx-rule-grow {
+  from {
+    opacity: 0.45;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes etx-space-pulse {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: scale(0.88);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .etx-stat-tile:hover {
+    background-color: rgba(255, 198, 39, 0.09);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 198, 39, 0.5),
+      inset 0 0 2.25rem rgba(255, 198, 39, 0.07);
+  }
+
+  .etx-stat-tile:hover .etx-stat-value {
+    text-shadow: 0 0 1.25rem rgba(255, 198, 39, 0.5);
+    transform: translateY(-2px) scale(1.045);
+  }
+
+  .etx-stat-tile:hover .etx-stat-label {
+    color: #ffffff;
+  }
+
+  .etx-interactive-surface:hover {
+    border-color: var(--color-aqua-600);
+    box-shadow:
+      0 16px 32px rgba(25, 25, 25, 0.14),
+      0 0 0 1px rgba(255, 198, 39, 0.45);
+    transform: translateY(-3px);
+  }
+
+  .etx-interactive-surface:hover .etx-interactive-title {
+    color: var(--color-ember-500);
+  }
+
+  .etx-interactive-surface:hover .etx-interactive-arrow {
+    transform: translateX(0.25rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -156,5 +853,29 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  .etx-space-art {
+    animation: none !important;
+  }
+
+  .etx-space-art::before,
+  .etx-space-art::after,
+  .etx-space-layer {
+    animation: none !important;
+    translate: none !important;
+  }
+
+  .etx-rule-reveal,
+  .etx-interactive-surface,
+  .etx-interactive-title,
+  .etx-interactive-arrow,
+  .etx-stat-tile,
+  .etx-stat-value,
+  .etx-stat-label,
+  .etx-text-link {
+    animation: none !important;
+    transform: none !important;
+    translate: none !important;
   }
 }

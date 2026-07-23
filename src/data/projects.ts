@@ -22,6 +22,7 @@ export interface Project {
   tagline: string;
   summary: string;
   accent: Accent;
+  cardAccent?: Accent;
   tags: string[];
   url: string;
   featured: boolean;
@@ -281,6 +282,7 @@ export const projects: Project[] = [
     summary:
       "A global network of educators creating and sharing next-generation courseware — including BioBeyond, an inquiry-driven introductory biology course.",
     accent: "ember",
+    cardAccent: "aqua",
     tags: ["Network", "Higher Ed", "Biology", "OER"],
     url: "https://inspark.education",
     featured: true,

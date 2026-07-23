@@ -28,15 +28,15 @@ export function Footer() {
 
           <div className="flex flex-wrap gap-14">
             <div>
-              <h3 className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
+              <h2 className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
                 Explore
-              </h3>
+              </h2>
               <ul className="mt-4 space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-sm text-white/80 transition-colors hover:text-aqua-500"
+                      className="text-sm text-white/80 transition-colors hover:text-aqua-500 focus-visible:text-aqua-500"
                     >
                       {link.label}
                     </Link>
@@ -45,14 +45,14 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
+              <h2 className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
                 Email
-              </h3>
+              </h2>
               <ul className="mt-4 space-y-3">
                 <li>
                   <a
                     href={`mailto:${brand.email}`}
-                    className="text-sm text-white/80 transition-colors hover:text-aqua-500"
+                    className="text-sm text-white/80 transition-colors hover:text-aqua-500 focus-visible:text-aqua-500"
                   >
                     {brand.email}
                   </a>
@@ -63,7 +63,7 @@ export function Footer() {
                     href="https://etx.asu.edu"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-white/80 transition-colors hover:text-aqua-500"
+                    className="text-sm text-white/80 transition-colors hover:text-aqua-500 focus-visible:text-aqua-500"
                   >
                     etx.asu.edu
                   </a>
@@ -84,7 +84,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-aqua-500"
+                  className="transition-colors hover:text-aqua-500 focus-visible:text-aqua-500"
                 >
                   {link.label}
                 </a>

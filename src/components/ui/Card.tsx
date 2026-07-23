@@ -11,7 +11,7 @@ export function Card({ children, className = "", interactive = false }: CardProp
     <div
       className={`rounded-md border border-nebula-2 bg-white p-6 shadow-sm ${
         interactive
-          ? "transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-ember-500/40"
+          ? "transition-all duration-200 group-hover:-translate-y-1 group-hover:border-aqua-600 group-hover:shadow-lg group-focus-visible:-translate-y-1 group-focus-visible:border-aqua-600 group-focus-visible:shadow-lg group-active:translate-y-0 group-active:scale-[0.99] motion-reduce:transform-none"
           : ""
       } ${className}`}
     >

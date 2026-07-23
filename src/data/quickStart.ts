@@ -11,6 +11,15 @@ export const tourItProductUrl = "https://infiniscope.org/page/tour-it";
 
 export const tourItModulesUrl = "https://infiniscope.org/page/tour-it-modules";
 
+export const simpleAuthorProductUrl =
+  "https://infiniscope.org/page/simple-author";
+
+export const simpleAuthorDemoUrl =
+  "https://proton.oli.cmu.edu/sections/simple_authoring_tool_demo/join";
+
+export const simpleAuthorModulesUrl =
+  "https://infiniscope.org/page/simple-author-modules";
+
 export interface QuickStartStep {
   number: string;
   title: string;
@@ -43,6 +52,16 @@ export const quickStartProducts: QuickStartProduct[] = [
     cta: "Start with Torus",
   },
   {
+    name: "Simple Author",
+    eyebrow: "Guided adaptive authoring",
+    blurb:
+      "Create an interactive lesson with templates, adaptive pathways, and personalized feedback.",
+    detail:
+      "Use a visual editor to add questions and media, map learner routes, and preview each path before sharing.",
+    to: "/quick-start/simple-author",
+    cta: "Start with Simple Author",
+  },
+  {
     name: "Tour It",
     eyebrow: "360° authoring",
     blurb: "Build your first immersive virtual field trip.",
@@ -60,7 +79,7 @@ export const torusQuickStartSteps: QuickStartStep[] = [
     title: "Create or access your Torus account",
     body: "Open the Torus author login and sign in with your author credentials. For now, skip “Sign in with Google” and use the standard author login path.",
     tips: [
-      "You need an authoring account to create and edit projects — instructor or student accounts won’t open Advanced Author.",
+      "You need an authoring account to create and edit projects. Instructor or student accounts will not open Advanced Author.",
       "Use the Torus author login linked above (not the Google sign-in option for now).",
     ],
   },
@@ -69,7 +88,7 @@ export const torusQuickStartSteps: QuickStartStep[] = [
     title: "Start a new project",
     body: "From the Projects view, click New Project, give it a title, and create it. You’ll land on the project overview where you can manage details and collaborators.",
     tips: [
-      "Name projects clearly — you’ll search for them again when you publish or create a section later.",
+      "Name projects clearly because you will search for them again when you publish or create a section later.",
     ],
   },
   {
@@ -84,7 +103,7 @@ export const torusQuickStartSteps: QuickStartStep[] = [
   {
     number: "04",
     title: "Preview, then keep building",
-    body: "Open Preview from the page editor to experience the lesson like a learner. Use preview’s screen-hopping and Inspector tools for troubleshooting — then return to the wiki for layers, components, states, CSS, and publishing.",
+    body: "Open Preview from the page editor to experience the lesson like a learner. Use preview’s screen-hopping and Inspector tools for troubleshooting. Then return to the wiki for layers, components, states, CSS, and publishing.",
     tips: [
       "Skipping around in preview can behave differently than a real learner path if your page uses layers or initial states.",
       "When you’re ready to share, the wiki covers publishing and Direct Delivery (non-LMS) sections.",
@@ -166,5 +185,67 @@ export const tourItQuickStartTopics: QuickStartTopic[] = [
   {
     title: "Media tips & troubleshooting",
     blurb: "Prepare 360° imagery and hotspot media, then diagnose common authoring and playback issues.",
+  },
+];
+
+/** First mile guide distilled from the official Simple Author overview. */
+export const simpleAuthorQuickStartSteps: QuickStartStep[] = [
+  {
+    number: "01",
+    title: "Explore the guest demo lesson",
+    body: "Open the guest demo to experience a Simple Author activity as a learner. Look for how questions, media, adaptive pathways, and feedback shape what appears next.",
+    tips: [
+      "Guest participation is anonymous, and progress in the demo is not saved.",
+      "Notice how learner responses can lead to different feedback or content.",
+    ],
+  },
+  {
+    number: "02",
+    title: "Request free access through Infiniscope",
+    body: "Open the Simple Author overview, complete the access form, and follow the instructions Infiniscope sends to create an account and open the free authoring tool.",
+    tips: [
+      "The official overview includes the access form and links to the demo and training.",
+    ],
+  },
+  {
+    number: "03",
+    title: "Start with a template and visual editor",
+    body: "Choose a screen template, add your own text and images, and arrange the activity with the drag and drop interface, rich text editor, and flowchart tool.",
+    tips: [
+      "Use the one click preview as you build so you can check the learner experience early.",
+    ],
+  },
+  {
+    number: "04",
+    title:
+      "Add questions, media, adaptive pathways, and response-specific feedback",
+    body: "Add questions and embedded media, route learners through adaptive pathways, and write response specific feedback. Preview every route before you share or deliver the activity through an LMS.",
+    tips: [
+      "Simple Author provides six question types and supports embedded videos, websites, simulations, and images.",
+      "Test routes that support struggling learners, challenge high achievers, and offer student agency.",
+    ],
+  },
+];
+
+export const simpleAuthorQuickStartTopics: QuickStartTopic[] = [
+  {
+    title: "Templates and visual editing",
+    blurb:
+      "Choose a screen template, arrange content with visual editing tools, and preview changes quickly.",
+  },
+  {
+    title: "Flowcharts and adaptive pathways",
+    blurb:
+      "Map routes that address misconceptions, fill learning gaps, extend learning, and support student agency.",
+  },
+  {
+    title: "Questions and interactive media",
+    blurb:
+      "Use six question types and add videos, simulations, websites, images, and other rich media.",
+  },
+  {
+    title: "Personalized feedback and delivery",
+    blurb:
+      "Write feedback for individual responses, test every path, and prepare the activity for LMS delivery.",
   },
 ];

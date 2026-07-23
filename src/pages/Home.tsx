@@ -1,56 +1,64 @@
+import { Link } from "react-router-dom";
+import { SpaceBackdrop } from "../components/PageHero";
 import { Button } from "../components/ui/Button";
 import { Section, SectionHeader } from "../components/ui/Section";
 import { Card } from "../components/ui/Card";
+import { GoldBar } from "../components/ui/GoldBar";
 import { Reveal } from "../components/ui/Reveal";
 import { ProjectCard } from "../components/ProjectCard";
 import {
   brand,
+  creatorMessage,
   services,
   values,
   stats,
   partners,
   accentClasses,
 } from "../data/content";
+import { creatorTools } from "../data/creatorTools";
 import { featuredProjects } from "../data/projects";
 
 export function Home() {
-  const [clauseOne, clauseTwo, clauseThree] = brand.tagline.split(". ");
-  const [missionLead, missionEmphasis] = brand.missionShort.split(". ");
-
   return (
-    <main>
-      {/* 1) HERO — ASU maroon band */}
-      <section className="etx-maroon-band" aria-labelledby="hero-heading">
-        <div className="etx-container py-20 sm:py-24 lg:py-28">
+    <>
+      {/* 1) HERO */}
+      <section
+        className="etx-space-hero relative overflow-hidden"
+        aria-labelledby="hero-heading"
+      >
+        <SpaceBackdrop variant="home" />
+        <div className="etx-container relative z-10 py-20 sm:py-24 lg:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
             <div>
-              <Reveal>
+              <Reveal preset="slide">
                 <span className="font-display text-sm font-bold uppercase tracking-wider text-aqua-500">
-                  Learning-experience design studio
+                  Learning experience design studio
                 </span>
                 <h1
                   id="hero-heading"
                   className="mt-4 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
                 >
-                  {clauseOne}.{" "}
-                  <span className="text-aqua-500">{clauseTwo}.</span>{" "}
-                  {clauseThree}
+                  {brand.heroHeadline.opening}{" "}
+                  <span className="text-aqua-500">
+                    {brand.heroHeadline.accent}
+                  </span>{" "}
+                  {brand.heroHeadline.closing}
                 </h1>
                 <span
-                  className="mt-6 block h-1.5 w-14 rounded bg-aqua-500"
+                  className="etx-rule-reveal mt-6 block h-1.5 w-14 rounded bg-aqua-500"
                   aria-hidden="true"
                 />
               </Reveal>
 
               <Reveal delay={0.1} className="mt-6 max-w-2xl">
                 <p className="text-lg leading-relaxed text-white/90 sm:text-xl">
-                  {brand.positioning}
+                  {brand.heroBody}
                 </p>
               </Reveal>
 
               <Reveal delay={0.2} className="mt-9 flex flex-wrap gap-4">
                 <Button to="/quick-start" variant="gold" size="lg">
-                  Quick start
+                  Create with our tools
                 </Button>
                 <Button
                   to="/work"
@@ -63,20 +71,19 @@ export function Home() {
               </Reveal>
             </div>
 
-            <Reveal delay={0.3}>
-              <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-white/20 bg-white/20">
+            <Reveal delay={0.3} preset="scale">
+              <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-white/15 bg-white/15 shadow-2xl shadow-black/30">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="flex flex-col gap-1 bg-ember-500 p-5"
+                    className="etx-stat-tile relative flex flex-col gap-1 overflow-hidden bg-black/60 p-5 backdrop-blur-sm"
                   >
-                    <dt className="sr-only">{stat.label}</dt>
-                    <dd className="font-display text-3xl font-bold text-aqua-500 sm:text-4xl">
+                    <dt className="etx-stat-label order-2 text-sm leading-snug text-white/80">
+                      {stat.label}
+                    </dt>
+                    <dd className="etx-stat-value order-1 origin-left font-display text-3xl font-bold text-aqua-500 sm:text-4xl">
                       {stat.value}
                     </dd>
-                    <p className="text-sm leading-snug text-white/80">
-                      {stat.label}
-                    </p>
                   </div>
                 ))}
               </dl>
@@ -89,13 +96,72 @@ export function Home() {
       <Section className="bg-void">
         <Reveal className="max-w-4xl">
           <span className="etx-eyebrow">Why we exist</span>
-          <p className="mt-5 font-display text-3xl font-bold leading-tight text-star sm:text-4xl lg:text-5xl">
-            {missionLead}. {missionEmphasis}
-          </p>
-          <span className="etx-goldbar mt-6" aria-hidden="true" />
+          <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-star sm:text-4xl lg:text-5xl">
+            {brand.missionShort}
+          </h2>
+          <GoldBar className="mt-6" />
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-mist">
             {brand.mission}
           </p>
+        </Reveal>
+
+        <Reveal delay={0.1} className="mt-12">
+          <Card className="border-l-4 border-l-aqua-500 md:p-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
+              <div className="max-w-3xl">
+                <span className="etx-eyebrow">{creatorMessage.eyebrow}</span>
+                <h3 className="mt-3 text-3xl text-star sm:text-4xl">
+                  {creatorMessage.title}
+                </h3>
+                <p className="mt-4 text-lg leading-relaxed text-mist">
+                  {creatorMessage.body}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-4">
+                  {creatorTools.map((tool) =>
+                    tool.external ? (
+                      <a
+                        key={tool.name}
+                        href={tool.destination}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="etx-text-link group"
+                      >
+                        {tool.name}
+                        <span className="sr-only"> opens in a new tab</span>
+                        <span
+                          aria-hidden="true"
+                          className="transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
+                        >
+                          →
+                        </span>
+                      </a>
+                    ) : (
+                      <Link
+                        key={tool.name}
+                        to={tool.destination}
+                        className="etx-text-link group"
+                      >
+                        {tool.name}
+                        <span
+                          aria-hidden="true"
+                          className="transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
+                        >
+                          →
+                        </span>
+                      </Link>
+                    ),
+                  )}
+                </div>
+              </div>
+              <Button
+                to="/quick-start"
+                size="lg"
+                className="shrink-0 self-start md:self-auto"
+              >
+                Explore creator tools
+              </Button>
+            </div>
+          </Card>
         </Reveal>
       </Section>
 
@@ -110,8 +176,13 @@ export function Home() {
           {services.map((service, i) => {
             const accent = accentClasses[service.accent];
             return (
-              <Reveal key={service.title} as="article" delay={i * 0.08}>
-                <Card interactive className="h-full">
+              <Reveal
+                key={service.title}
+                as="article"
+                preset="stagger"
+                delay={i * 0.08}
+              >
+                <Card className="h-full">
                   <h3 className="font-display text-xl font-bold text-star">
                     {service.title}
                   </h3>
@@ -156,6 +227,7 @@ export function Home() {
             <Reveal
               key={project.slug}
               as="article"
+              preset="stagger"
               delay={i * 0.08}
               className="h-full"
             >
@@ -179,7 +251,12 @@ export function Home() {
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {values.slice(0, 3).map((value, i) => (
-            <Reveal key={value.title} as="article" delay={i * 0.08}>
+            <Reveal
+              key={value.title}
+              as="article"
+              preset="stagger"
+              delay={i * 0.08}
+            >
               <Card className="h-full">
                 <h3 className="font-display text-lg font-bold text-star">
                   {value.title}
@@ -220,6 +297,6 @@ export function Home() {
           </ul>
         </Reveal>
       </Section>
-    </main>
+    </>
   );
 }

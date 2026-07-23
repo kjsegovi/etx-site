@@ -7,6 +7,7 @@ import { Services } from "./pages/Services";
 import { Approach } from "./pages/Approach";
 import { QuickStart } from "./pages/QuickStart";
 import { QuickStartChooser } from "./pages/QuickStartChooser";
+import { SimpleAuthorQuickStart } from "./pages/SimpleAuthorQuickStart";
 import { TourItQuickStart } from "./pages/TourItQuickStart";
 import { NotFound } from "./pages/NotFound";
 
@@ -21,6 +22,10 @@ export default function App() {
         <Route path="approach" element={<Approach />} />
         <Route path="quick-start" element={<QuickStartChooser />} />
         <Route path="quick-start/torus" element={<QuickStart />} />
+        <Route
+          path="quick-start/simple-author"
+          element={<SimpleAuthorQuickStart />}
+        />
         <Route path="quick-start/tour-it" element={<TourItQuickStart />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -1,5 +1,9 @@
-import { PageHero } from "./PageHero";
+import {
+  PageHero,
+  type PageHeroSpaceVariant,
+} from "./PageHero";
 import { Button } from "./ui/Button";
+import { GoldBar } from "./ui/GoldBar";
 import { Reveal } from "./ui/Reveal";
 import { Section, SectionHeader } from "./ui/Section";
 import type { QuickStartStep, QuickStartTopic } from "../data/quickStart";
@@ -7,51 +11,59 @@ import type { QuickStartStep, QuickStartTopic } from "../data/quickStart";
 interface GuideLink {
   label: string;
   href: string;
+  emphasis?: "primary" | "secondary";
 }
 
 interface QuickStartGuideProps {
   title: string;
   intro: string;
   primaryLink: GuideLink;
-  wikiLink: GuideLink;
+  secondaryLink: GuideLink;
   steps: QuickStartStep[];
   firstMileTitle: string;
   firstMileIntro: string;
   topics: QuickStartTopic[];
   deeperIntro: string;
-  wikiHeading: string;
-  wikiDescription: string;
-  additionalLink?: GuideLink;
+  resourceHeading: string;
+  resourceDescription: string;
+  resourceLinks: GuideLink[];
+  spaceVariant: PageHeroSpaceVariant;
 }
 
 export function QuickStartGuide({
   title,
   intro,
   primaryLink,
-  wikiLink,
+  secondaryLink,
   steps,
   firstMileTitle,
   firstMileIntro,
   topics,
   deeperIntro,
-  wikiHeading,
-  wikiDescription,
-  additionalLink,
+  resourceHeading,
+  resourceDescription,
+  resourceLinks,
+  spaceVariant,
 }: QuickStartGuideProps) {
   return (
     <>
-      <PageHero eyebrow="Quick start" title={title} intro={intro}>
+      <PageHero
+        eyebrow="Quick start"
+        title={title}
+        intro={intro}
+        spaceVariant={spaceVariant}
+      >
         <div className="flex flex-wrap gap-4">
           <Button href={primaryLink.href} variant="gold" size="lg">
             {primaryLink.label}
           </Button>
           <Button
-            href={wikiLink.href}
+            href={secondaryLink.href}
             variant="ghost"
             size="lg"
             className="border-2 border-white text-white no-underline hover:bg-white hover:text-ember-500"
           >
-            {wikiLink.label}
+            {secondaryLink.label}
           </Button>
         </div>
       </PageHero>
@@ -67,6 +79,7 @@ export function QuickStartGuide({
           {steps.map((step, index) => (
             <Reveal
               key={step.number}
+              preset="stagger"
               delay={Math.min(index * 0.06, 0.3)}
               as="li"
               className="grid gap-6 border-t border-nebula-2 pt-8 lg:grid-cols-[minmax(0,12rem)_minmax(0,1fr)] lg:gap-12"
@@ -116,32 +129,35 @@ export function QuickStartGuide({
             <Reveal
               key={topic.title}
               delay={Math.min(index * 0.06, 0.3)}
+              preset="stagger"
               className="rounded-md border border-nebula-2 bg-white p-6"
             >
-              <span className="etx-goldbar mb-4" aria-hidden="true" />
+              <GoldBar className="mb-4" />
               <h3 className="text-lg text-star">{topic.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-mist">{topic.blurb}</p>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={0.15} className="mt-12">
+        <Reveal delay={0.15} preset="scale" className="mt-12">
           <div className="flex flex-col items-start gap-5 rounded-md border border-nebula-2 bg-white p-8 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-xl">
-              <h3 className="text-xl text-star">{wikiHeading}</h3>
+              <h3 className="text-xl text-star">{resourceHeading}</h3>
               <p className="mt-2 text-base leading-relaxed text-mist">
-                {wikiDescription}
+                {resourceDescription}
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              {additionalLink && (
-                <Button href={additionalLink.href} variant="secondary" size="lg">
-                  {additionalLink.label}
+              {resourceLinks.map((link) => (
+                <Button
+                  key={`${link.label}-${link.href}`}
+                  href={link.href}
+                  variant={link.emphasis ?? "secondary"}
+                  size="lg"
+                >
+                  {link.label}
                 </Button>
-              )}
-              <Button href={wikiLink.href} variant="primary" size="lg">
-                Open the wiki
-              </Button>
+              ))}
             </div>
           </div>
         </Reveal>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { GoldBar } from "./GoldBar";
 import { Reveal } from "./Reveal";
 
 interface SectionProps {
@@ -39,10 +40,13 @@ export function SectionHeader({
   const alignment =
     align === "center" ? "items-center text-center mx-auto" : "items-start";
   return (
-    <Reveal className={`flex max-w-2xl flex-col gap-4 ${alignment} ${className}`}>
+    <Reveal
+      preset="slide"
+      className={`flex max-w-2xl flex-col gap-4 ${alignment} ${className}`}
+    >
       {eyebrow && <span className="etx-eyebrow">{eyebrow}</span>}
       <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] text-star">{title}</h2>
-      {goldbar && <span className="etx-goldbar" aria-hidden="true" />}
+      {goldbar && <GoldBar />}
       {intro && <p className="text-lg text-mist leading-relaxed">{intro}</p>}
     </Reveal>
   );
