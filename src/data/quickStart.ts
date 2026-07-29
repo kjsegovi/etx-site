@@ -48,7 +48,7 @@ export interface QuickStartProduct {
 
 export const quickStartProducts: QuickStartProduct[] = [
   {
-    name: "Torus",
+    name: "Torus - Basic Author",
     eyebrow: "Flexible authoring",
     blurb: "Build your first basic learning page in Torus.",
     detail:
@@ -57,7 +57,7 @@ export const quickStartProducts: QuickStartProduct[] = [
     cta: "Start with Torus",
   },
   {
-    name: "Simple Author",
+    name: "Torus - Simple Author",
     eyebrow: "Guided adaptive authoring",
     blurb:
       "Create an interactive lesson with templates, adaptive pathways, and personalized feedback.",

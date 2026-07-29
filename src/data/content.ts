@@ -39,7 +39,7 @@ export const homepageVideo: HomepageVideo = {
   eyebrow: "See ETX in action",
   title: "Education through exploration",
   summary:
-    "This NASA Movie Night feature shows how ETX brings learning science, technology, and collaboration together to create authentic exploration at greater scale, with quality and inclusion at the center.",
+    "This YouTube shows how ETX brings learning science, technology, and collaboration together to create authentic exploration at greater scale, with quality and inclusion at the center.",
   embedUrl:
     "https://www.youtube.com/embed/bWcjmu5r7wE?si=EE3ibau35ybSVHoW&cc_load_policy=1&cc_lang_pref=en&playsinline=1",
   iframeTitle: "Education Through Exploration: NASA Movie Night 2021",
