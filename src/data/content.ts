@@ -24,7 +24,7 @@ export const brand = {
 export const creatorMessage = {
   eyebrow: "Creator tools",
   title: "We catalyze creators.",
-  body: "Educators, instructors, and organizations can use Torus, Simple Author, and Tour It to create, adapt, and deliver meaningful learning experiences of their own.",
+  body: "Educators, instructors, and organizations can use Basic Author, Simple Author, and Tour It to create, adapt, and deliver meaningful learning experiences of their own.",
 };
 
 export interface HomepageVideo {

@@ -7,14 +7,14 @@ export interface CreatorTool {
 
 export const creatorTools: CreatorTool[] = [
   {
-    name: "Torus",
+    name: "Torus - Basic Author",
     description:
       "Create adaptive learning experiences with an open authoring and delivery platform.",
     destination: "/quick-start/torus",
     external: false,
   },
   {
-    name: "Simple Author",
+    name: "Torus - Simple Author",
     description:
       "Build responsive adaptive pages with a guided authoring workflow.",
     destination: "/quick-start/simple-author",
